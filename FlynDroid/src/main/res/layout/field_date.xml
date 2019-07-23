@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="3dip"
+            android:id="@+id/date_name"
+            android:visibility="gone"
+            android:textAppearance="@style/submit_form_caption"/>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="44dp"
+                android:id="@+id/single"
+                android:singleLine="true"
+                android:tag="start"
+                android:textSize="16sp"
+                android:textColor="@color/field_edit_text_color"
+                android:background="@drawable/edit_text" />
+
+            <EditText xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="44dp"
+                android:id="@+id/multi"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
+                android:tag="end"
+                android:singleLine="true"
+                android:textSize="16sp"
+                android:textColor="@color/field_edit_text_color"
+                android:background="@drawable/edit_text" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <include layout="@layout/field_error_view" />
+
+</LinearLayout>

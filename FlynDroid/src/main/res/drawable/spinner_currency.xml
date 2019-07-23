@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+	<item>
+        <bitmap
+            android:src="@mipmap/spinner_angel_currency"
+            android:gravity="bottom|end|right"
+            android:tileMode="disabled" />
+    </item>
+</layer-list>

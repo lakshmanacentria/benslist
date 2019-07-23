@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="pluginBridgePath">plugins/androidConnect/request.php</string>
+	<string name="googleStaticMapRequest"><![CDATA[http://maps.google.com/maps/api/staticmap?center={lat},{long}&zoom={zoom}&size={width}x{height}&sensor=false&scale={scale}]]></string>
+	
+	<string name="config_update">1</string>
+	<string name="customer_domain">www.benslist.com</string>
+	
+	<string name="list_dialog_title">Select type classifieds</string>
+
+	<string-array name="list_demo_selector">
+    	<item>General Classifieds</item>
+    	<item>Auto Classifieds</item>
+    	<item>Realty Classifieds</item>
+    	<item>Boats Classifieds</item>
+    	<item>Pets Classifieds</item>
+    	<item>Escort Agency</item>
+	</string-array>
+
+	<string-array name="list_demo_relations">
+    	<item>classifieds.demoflynax.com</item>
+    	<item>auto.demoflynax.com</item>
+    	<item>realty.demoflynax.com</item>
+    	<item>boats.demoflynax.com</item>
+    	<item>pets.demoflynax.com</item>
+    	<item>escort.demoflynax.com</item>
+	</string-array>
+	
+	<string-array name="list_listing_types_icons">
+    	<item>auto_parts</item>
+    	<item>auto</item>
+    	<item>job</item>
+    	<item>services</item>
+    	<item>listings</item>
+    	<item>pets</item>
+    	<item>boat_staff</item>
+    	<item>med_service</item>
+    	<item>boats</item>
+    	<item>guys</item>
+    	<item>girls</item>
+    	<item>property</item>
+	</string-array>
+
+    <string-array name="pp_rest_countries">
+        <item>us</item>
+        <item>uk</item>
+    </string-array>
+	
+	<string-array name="preload_method">
+    	<item name="scroll">On Scroll</item>
+    	<item name="button">On Button Click</item>
+	</string-array>
+	
+	<string-array name="preload_method_values">
+    	<item name="scroll">scroll</item>
+    	<item name="button">button</item>
+	</string-array>
+	
+</resources>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/menu_settings"
+        android:title="android_menu_settings"
+        android:orderInCategory="1"
+        app:showAsAction="never" />
+    
+    <item android:id="@+id/menu_about_app"
+        android:title="android_menu_about_app"
+        android:orderInCategory="2"
+        app:showAsAction="never" />
+    
+    <item android:id="@+id/menu_send_feedback"
+        android:title="android_menu_send_feedback"
+        android:orderInCategory="3"
+        app:showAsAction="never" />
+    
+    <item android:id="@+id/menu_search"
+		android:icon="@mipmap/ic_action_search"
+		android:title="android_menu_search"
+        app:showAsAction="always" />
+    
+    <item android:id="@+id/menu_account_alphabet"
+        app:showAsAction="always"
+        android:title="android_menu_search"
+        app:actionViewClass="android.widget.Spinner"
+        android:actionLayout="@layout/alphabet_spinner"
+        android:visible="false" />
+    
+    <item android:id="@+id/menu_remove_account"
+        android:title="android_remove_account"
+        android:orderInCategory="1"
+        app:showAsAction="never"
+        android:visible="false" />
+
+    <item android:id="@+id/menu_logout"
+        android:title="android_logout"
+        android:orderInCategory="1"
+        app:showAsAction="never"
+        android:visible="false" />
+</menu>

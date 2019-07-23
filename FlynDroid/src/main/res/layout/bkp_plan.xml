@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    
+	<LinearLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:background="@drawable/plan_border"
+	    android:paddingBottom="1dip">
+	
+	    <LinearLayout
+		    android:id="@+id/color"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:paddingLeft="7dip"
+			android:paddingStart="7dip"
+		    android:background="@color/plan_default_color">
+		    
+		    <LinearLayout
+			    android:layout_width="fill_parent"
+			    android:layout_height="wrap_content"
+			    android:orientation="horizontal"
+			    android:background="#B3FFFFFF">
+			    
+		        <LinearLayout
+				    android:layout_width="0dip"
+				    android:layout_weight="1"
+				    android:layout_height="wrap_content"
+				    android:orientation="vertical"
+				    android:paddingLeft="15dp"
+					android:paddingStart="15dp"
+				    android:paddingRight="10dp"
+					android:paddingEnd="10dp"
+				    android:paddingTop="10dp"
+				    android:paddingBottom="10dp">
+	    
+				    <TextView
+				        android:id="@+id/title"
+				        android:layout_width="wrap_content"
+				    	android:layout_height="wrap_content"
+				    	android:textColor="#484848"
+				    	android:textSize="21sp"
+				    	android:textStyle="bold" />
+				    
+				    <TextView
+				        android:id="@+id/type"
+				        android:layout_width="wrap_content"
+				    	android:layout_height="wrap_content"
+				    	android:textColor="#777777"
+				    	android:textSize="16sp" />
+				    
+				    <LinearLayout
+				        android:layout_width="match_parent"
+				    	android:layout_height="wrap_content"
+				    	android:paddingTop="14dip"
+				    	android:paddingBottom="14dip"
+				    	android:orientation="horizontal">
+				        
+				        <LinearLayout
+				            android:id="@+id/photo"
+				            android:layout_width="wrap_content"
+					        android:layout_height="wrap_content">
+				            
+					        <ImageView
+					            android:layout_width="wrap_content"
+					            android:layout_height="wrap_content"
+					            android:layout_gravity="center"
+					            android:src="@mipmap/plan_photo" />
+					        
+					        <TextView
+					            android:tag="text"
+					            android:layout_width="33dip"
+					    		android:layout_height="wrap_content"
+					    		android:textColor="#484848"
+					    		android:textSize="19sp"
+					    		android:textStyle="bold"
+					    		android:layout_marginLeft="6dip"
+								android:layout_marginStart="6dip"
+					    		android:maxLines="1"
+					    		android:ellipsize="end"
+					    		android:text="5" />
+					        
+						</LinearLayout>
+				        
+				        <LinearLayout
+				            android:id="@+id/video"
+				            android:layout_width="wrap_content"
+					        android:layout_height="wrap_content"
+					        android:layout_marginLeft="5dip"
+							android:layout_marginStart="5dip">
+					        
+					        <ImageView
+					            android:layout_width="wrap_content"
+					            android:layout_height="wrap_content"
+					            android:layout_gravity="center"
+					            android:src="@mipmap/plan_video" />
+					        
+					        <TextView
+					            android:tag="text"
+					            android:layout_width="33dip"
+					    		android:layout_height="wrap_content"
+					    		android:textColor="#484848"
+					    		android:textSize="19sp"
+					    		android:textStyle="bold"
+					    		android:layout_marginLeft="6dip"
+								android:layout_marginStart="6dip"
+					    		android:maxLines="1"
+					    		android:ellipsize="end"
+					    		android:text="5" />
+					        
+						</LinearLayout>
+				        
+				        <LinearLayout
+				            android:id="@+id/listing_live"
+				            android:layout_width="wrap_content"
+					        android:layout_height="wrap_content"
+					        android:layout_marginLeft="5dip"
+							android:layout_marginStart="5dip">
+					        
+					        <ImageView
+					            android:layout_width="wrap_content"
+					            android:layout_height="wrap_content"
+					            android:layout_gravity="center"
+					            android:src="@mipmap/plan_live" />
+					        
+					        <TextView
+					            android:tag="text"
+					            android:layout_width="33dip"
+					    		android:layout_height="wrap_content"
+					    		android:textColor="#484848"
+					    		android:textSize="19sp"
+					    		android:textStyle="bold"
+					    		android:layout_marginLeft="6dip"
+								android:layout_marginStart="6dip"
+					    		android:maxLines="1"
+					    		android:text="5" />
+					        
+						</LinearLayout>
+				        
+				    </LinearLayout>
+				    
+				    <TextView
+				        android:id="@+id/description"
+				        android:layout_width="wrap_content"
+				    	android:layout_height="wrap_content"
+				    	android:visibility="gone"
+				    	android:textColor="#6f6f6f"
+				    	android:maxLines="2"
+				    	android:ellipsize="end"
+				    	android:lineSpacingExtra="3dip"
+				    	android:textSize="14sp" />
+				    
+				</LinearLayout>
+				
+		        <LinearLayout
+				    android:layout_width="wrap_content"
+				    android:layout_height="match_parent"
+				    android:maxWidth="110dip"
+    				android:minWidth="80dip"
+				    android:orientation="vertical"
+				    android:background="@drawable/plan_border_left"
+				    android:gravity="center">
+				    
+		            <TextView
+		                android:id="@+id/price"
+		                android:layout_width="wrap_content"
+				    	android:layout_height="wrap_content"
+				    	android:textColor="#484848"
+				    	android:textSize="18sp"
+				    	android:text="Free" />
+		            
+		            <RadioButton
+		                android:id="@+id/selected_plan"
+		                android:focusable="false"
+		                android:clickable="false"
+		                android:layout_width="wrap_content"
+				    	android:layout_height="wrap_content" />
+				    
+				</LinearLayout>
+	
+			</LinearLayout>		    
+		    
+		</LinearLayout>
+	    
+	</LinearLayout>
+	
+</LinearLayout>

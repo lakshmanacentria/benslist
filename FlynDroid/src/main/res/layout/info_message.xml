@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/message"
+	android:background="@drawable/content_logo_bg"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:text="Message"
+	android:textSize="17sp"
+	android:textColor="#0f1c1e"
+	android:gravity="center_horizontal"
+	android:paddingTop="150dip"
+	android:paddingLeft="35dip"
+	android:paddingStart="35dip"
+	android:paddingRight="35dip"
+	android:paddingEnd="35dip"
+	android:paddingBottom="40dip" />

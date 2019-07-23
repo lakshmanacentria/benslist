@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_container"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="@dimen/max_content_width"
+            android:layout_height="fill_parent"
+            android:scrollbarStyle="outsideOverlay">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include layout="@layout/login_form"  />
+
+                <!-- category Options -->
+                <LinearLayout
+                    android:id="@+id/category_options"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    style="@style/content_side_padding">
+
+                    <com.acentria.benslist.elements.FlyTextView
+                        android:id="@+id/listing_type_captoin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="listing_type"
+                        style="@style/field_caption" />
+
+                    <include layout="@layout/spinner" android:id="@+id/listing_type" />
+
+                    <LinearLayout
+                        android:id="@+id/category_spinners"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <com.acentria.benslist.elements.FlyTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="listing_category"
+                            style="@style/field_caption" />
+
+                        <LinearLayout
+                            android:id="@+id/category_spinners_cont"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="15dip">
+
+                            <com.acentria.benslist.elements.FlyButton
+                                android:id="@+id/cancel_category_button"
+                                android:layout_width="wrap_content"
+                                android:layout_height="44dp"
+                                android:layout_marginRight="10dip"
+                                android:layout_marginEnd="10dip"
+                                android:visibility="gone"
+                                android:text="android_dialog_cancel"
+                                android:background="@drawable/shape_button_grey"
+                                style="@style/orange_button" />
+
+                            <com.acentria.benslist.elements.FlyButton
+                                android:id="@+id/select_category_button"
+                                android:layout_width="0dip"
+                                android:layout_height="44dp"
+                                android:layout_weight="1"
+                                android:text="select_category"
+                                android:background="@drawable/shape_button"
+                                android:visibility="gone"
+                                android:layout_marginBottom="15dip"
+                                style="@style/orange_button" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <com.acentria.benslist.elements.FlyTextView
+                        android:id="@+id/listing_type_through_hint"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="add_listing_listing_type_hint"
+                        style="@style/through_hint" />
+
+                    <com.acentria.benslist.elements.FlyTextView
+                        android:id="@+id/category_locked_warning"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="add_listing_locked_category_warning"
+                        android:visibility="gone"
+                        style="@style/through_warning" />
+
+                </LinearLayout>
+                <!-- category Options END -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    style="@style/content_side_padding">
+
+                    <!-- selected Category Nav -->
+                    <LinearLayout
+                        android:id="@+id/category_selected"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone"
+                        android:layout_marginTop="15dip"
+                        style="@style/manage_area">
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            style="@style/manage_area_header">
+
+                            <com.acentria.benslist.elements.FlyTextView
+                                android:layout_width="0dip"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="listing_category"
+                                style="@style/manage_area_caption" />
+
+                            <ImageView
+                                android:id="@+id/edit_category"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:background="@drawable/icon_edit_state" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/selected_category_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Some category"
+                            style="@style/manage_area_text" />
+
+                    </LinearLayout>
+                    <!-- selected Category Nav END -->
+
+                    <!-- select plan -->
+                    <LinearLayout
+                        android:id="@+id/plan_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="15dip"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:id="@+id/listing_plan_selector"
+                            android:layout_width="fill_parent"
+                            android:layout_height="44dip"
+                            android:paddingLeft="13dip"
+                            android:paddingStart="13dip"
+                            android:paddingRight="10dip"
+                            android:paddingEnd="10dip"
+                            android:orientation="horizontal"
+                            android:background="@drawable/manage_area_clickable_bg">
+
+                            <com.acentria.benslist.elements.FlyTextView
+                                android:id="@+id/listing_plan_name"
+                                android:layout_width="0dip"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:paddingTop="9dip"
+                                android:singleLine="true"
+                                android:ellipsize="end"
+                                android:text="select_plan"
+                                style="@style/default_text" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="11dip"
+                                android:src="@drawable/plan_selector_bg" />
+
+                        </LinearLayout>
+
+                        <include layout="@layout/field_error_view" android:id="@+id/listing_plan_error" />
+
+                        <!-- type -->
+                        <LinearLayout
+                            android:id="@+id/listing_plan_type"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="10dip"
+                            android:visibility="gone">
+
+                            <com.acentria.benslist.elements.FlyTextView
+                                android:layout_width="120dip"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top"
+                                android:gravity="center_vertical"
+                                android:textColor="#484848"
+                                android:paddingTop="4dip"
+                                android:textSize="16sp"
+                                android:text="listing_appearance_type" />
+
+                            <RadioGroup
+                                android:id="@+id/radio_group"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top"
+                                android:paddingTop="1dip"
+                                android:orientation="vertical">
+
+                                <com.acentria.benslist.elements.FlyRadioButton
+                                    android:id="@+id/listing_standard"
+                                    android:tag="standard"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="listing_appearance_standard" />
+
+                                <com.acentria.benslist.elements.FlyRadioButton
+                                    android:id="@+id/listing_featured"
+                                    android:tag="featured"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="3dip"
+                                    android:text="listing_appearance_featured" />
+
+                            </RadioGroup>
+
+                        </LinearLayout>
+                        <!-- type end -->
+
+                    </LinearLayout>
+                    <!-- select plan end -->
+
+                </LinearLayout>
+
+                <!-- fields area -->
+                <LinearLayout
+                    android:id="@+id/fields_area"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone" />
+                <!-- fields area end -->
+                <com.acentria.benslist.elements.FlyButton
+                    android:id="@+id/submit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="submit"
+                    android:background="@drawable/shape_button"
+                    android:visibility="gone"
+                    android:layout_margin="15dip"
+                    style="@style/orange_button" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dip"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:background="@color/landscape_side_bg">
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scrollbarStyle="outsideOverlay">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- add photos area -->
+                <LinearLayout
+                    android:id="@+id/photos_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:layout_marginTop="15dip">
+
+                    <include layout="@layout/fieldset" />
+
+                    <GridView
+                        android:id="@+id/pictures"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:columnWidth="@dimen/pictures_grid_column_width"
+                        android:drawSelectorOnTop="true"
+                        android:gravity="top|left|start"
+                        android:fadingEdge="none"
+                        android:listSelector="@drawable/featured_item_state"
+                        android:numColumns="auto_fit"
+                        android:stretchMode="columnWidth"
+                        android:verticalSpacing="@dimen/pictures_grid_column_space"
+                        android:horizontalSpacing="@dimen/pictures_grid_column_space"
+                        android:layout_marginTop="15dip"
+                        style="@style/content_side_padding" />
+
+                </LinearLayout>
+                <!-- add photos area end -->
+
+                <!-- videos area -->
+                <LinearLayout
+                    android:id="@+id/videos_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:layout_marginTop="15dip"
+                    android:layout_marginBottom="15dip">
+
+                    <include layout="@layout/fieldset" />
+
+                    <com.acentria.benslist.elements.ExpandableListView
+                        android:id="@+id/videos"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:divider="#dddddd"
+                        android:dividerHeight="1dp"
+                        android:drawSelectorOnTop="true"
+                        android:smoothScrollbar="true"
+                        android:fadingEdge="none"
+                        android:listSelector="@drawable/featured_item_state"
+                        android:headerDividersEnabled="false"
+                        android:layout_marginTop="15dip"
+                        android:visibility="gone"
+                        style="@style/content_side_padding" />
+
+                    <LinearLayout
+                        android:id="@+id/video_button_cont"
+                        android:layout_marginTop="15dip"
+                        android:layout_width="fill_parent"
+                        android:layout_height="60dp"
+                        android:background="#e0e0e0"
+                        android:layout_marginLeft="15dip"
+                        android:layout_marginRight="15dip">
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:background="@drawable/plus_media">
+
+                            <ImageView
+                                android:id="@+id/upload_video"
+                                android:clickable="true"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:background="@drawable/featured_item_state" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+                <!-- videos area end -->
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</LinearLayout>

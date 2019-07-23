@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="main_color">#07944b</color>
+    <color name="main_color_pressed">#27955C</color>
+    <color name="swipemenu_counter_start_color">#0FD16C</color>
+    <color name="swipemenu_counter_end_color">#0FC566</color>
+    <color name="home_featured_price_color">#22BB6C</color>
+    <color name="price_color">#00AF55</color>
+    <color name="about_app_link_color">#24AB64</color>
+    <color name="main_link_color">#006ec2</color>
+
+    <color name="button_state_color">#10B660</color>
+    <color name="button_underline_color">#08B25A</color>
+    <color name="button_state_pressed_color">#10AF5D</color>
+
+    <color name="field_edit_text_color">#2b2b2b</color>
+    <color name="landscape_side_bg">#c7c7c7</color>
+
+    <color name="featured_pressed">#600f1c1e</color>
+    <color name="swipe_menu_focus">#6007944b</color>
+    <color name="transparent_dark_bar">#c00f1c1e</color>
+
+    <color name="plan_default_color">#c0c0c0</color>
+
+</resources>

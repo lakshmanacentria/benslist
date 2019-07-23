@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:background="@drawable/slide_menu_container"
+	android:gravity="top"
+	android:orientation="vertical">
+
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:paddingLeft="12dp"
+		android:paddingStart="12dp"
+		android:paddingEnd="12dp"
+		android:paddingRight="12dp">
+
+		<AutoCompleteTextView
+			android:id="@+id/sm_keyword_search"
+			android:layout_width="match_parent"
+			android:layout_height="36dp"
+			android:background="@drawable/sm_shape_search"
+			android:textSize="15sp"
+			android:inputType="textNoSuggestions"
+			android:textColorHint="#898989" />
+
+	</LinearLayout>
+
+	<ListView
+		android:id="@+id/sm_menu_view"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:divider="@drawable/sm_list_view_divider"
+		android:dividerHeight="1dp"
+		android:listSelector="@drawable/menu_state"
+		android:drawSelectorOnTop="false"
+		android:scrollbars="none"
+		android:smoothScrollbar="true"
+		android:cacheColorHint="#212c2e"
+		android:fadingEdge="none"
+		android:headerDividersEnabled="false"
+		style="@style/swipe_menu_padding"
+		/>
+
+</LinearLayout>

@@ -1,0 +1,31 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+	<color name="FlynaxLaunch_main_bg">#0f1c1e</color>
+	<style name="Theme.Launch" parent="Theme.AppCompat.Light.DarkActionBar">
+		<item name="android:windowBackground">@color/FlynaxLaunch_main_bg</item>
+		<item name="android:windowActionBar">false</item>
+		<item name="windowActionBar">false</item>
+		<item name="popupMenuStyle">@style/PopupMenu</item>
+		<item name="android:actionBarStyle">@style/MyActionBar</item>
+		<item name="actionBarStyle">@style/MyActionBar</item>
+	</style>
+
+	<color name="FlynaxDefault_main_bg">#d4d4d4</color>
+	<style name="Theme.FlynaxDefault" parent="Theme.AppCompat.Light.DarkActionBar">
+		<item name="android:windowBackground">@color/FlynaxDefault_main_bg</item>
+		<item name="vpiTabPageIndicatorStyle">@style/Widget.TabPageIndicator</item>
+		<item name="popupMenuStyle">@style/PopupMenu</item>
+		<item name="android:actionBarStyle">@style/MyActionBar</item>
+		<item name="actionBarStyle">@style/MyActionBar</item>
+	</style>
+
+	<style name="Theme.FlynaxDefaultHome" parent="Theme.AppCompat.Light.DarkActionBar">
+		<item name="android:windowBackground">@color/FlynaxDefault_main_bg</item>
+		<item name="vpiTabPageIndicatorStyle">@style/Widget.TabPageIndicator</item>
+		<item name="android:textSize">16sp</item>
+		<item name="android:homeAsUpIndicator">@mipmap/swipe_menu_icon</item>
+		<item name="homeAsUpIndicator">@mipmap/swipe_menu_icon</item>
+		<item name="android:actionBarStyle">@style/MyActionBar</item>
+		<item name="actionBarStyle">@style/MyActionBar</item>
+
+	</style>
+</resources>

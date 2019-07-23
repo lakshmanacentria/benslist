@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:orientation="vertical">
+	
+	<EditText
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:lines="7"
+	    android:gravity="top|left"
+	    android:inputType="textMultiLine"
+		android:singleLine="false"
+		android:textSize="16sp"
+		android:textColor="#2b2b2b"
+		android:paddingTop="7dp"
+		android:background="@drawable/edit_text" />
+	
+	<include layout="@layout/field_error_view" />
+
+</LinearLayout>

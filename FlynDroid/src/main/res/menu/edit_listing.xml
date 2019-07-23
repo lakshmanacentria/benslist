@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!-- item
+        android:id="@+id/view_listing"
+        android:title="menu_view_listing"
+        android:orderInCategory="1"
+        android:showAsAction="always" /-->
+    
+    <item
+        android:id="@+id/view_statistics"
+        android:title="menu_view_statistics"
+        android:orderInCategory="2"
+        app:showAsAction="always" />
+    
+    <item
+        android:id="@+id/edit_listing"
+        android:title="menu_edit"
+        android:orderInCategory="3"
+        app:showAsAction="always" />
+    
+    <item
+        android:id="@+id/upgrade_to_featured"
+        android:title="menu_upgrade_to_featured"
+        android:orderInCategory="4"
+        app:showAsAction="always" />
+    
+    <item
+        android:id="@+id/upgrade_listing"
+        android:title="menu_upgrade_renew"
+        android:orderInCategory="5"
+        app:showAsAction="always" />
+    
+    <item
+        android:id="@+id/delete_listing"
+        android:title="menu_delete"
+        android:orderInCategory="6"
+        app:showAsAction="always" />
+</menu>

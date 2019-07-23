@@ -1,0 +1,1 @@
+include ':FlynDroid', ':SlidingMenu', ':viewpagerindicator', ':ImageGallery'

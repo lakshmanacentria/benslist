@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_contact_owner"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="@dimen/max_content_width"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.acentria.benslist.elements.FlyEditText
+            android:id="@+id/name"
+            android:layout_width="fill_parent"
+            android:layout_height="44dp"
+            android:singleLine="true"
+            android:textSize="16sp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/field_edit_text_color"
+            android:hint="android_your_name"
+            android:background="@drawable/edit_text" />
+
+        <com.acentria.benslist.elements.FlyEditText
+            android:id="@+id/mail"
+            android:layout_width="fill_parent"
+            android:layout_height="44dp"
+            android:singleLine="true"
+            android:layout_marginBottom="10dp"
+            android:textSize="16sp"
+            android:hint="android_your_email"
+            android:textColor="@color/field_edit_text_color"
+            android:background="@drawable/edit_text" />
+
+        <com.acentria.benslist.elements.FlyEditText
+            android:id="@+id/phone"
+            android:layout_width="fill_parent"
+            android:layout_height="44dp"
+            android:singleLine="true"
+            android:layout_marginBottom="10dp"
+            android:textSize="16sp"
+            android:hint="android_phone"
+            android:textColor="@color/field_edit_text_color"
+            android:background="@drawable/edit_text" />
+
+        <com.acentria.benslist.elements.FlyEditText
+            android:id="@+id/message"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:lines="7"
+            android:gravity="top|left|start"
+            android:inputType="textMultiLine"
+            android:singleLine="false"
+            android:layout_marginBottom="10dp"
+            android:hint="android_send_feedback_message"
+            android:textSize="16sp"
+            android:textColor="@color/field_edit_text_color"
+            android:background="@drawable/edit_text" />
+
+        <LinearLayout
+            android:id="@+id/send_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <com.acentria.benslist.elements.FlyButton
+                android:id="@+id/send"
+                style="@style/orange_button"
+                android:layout_width="fill_parent"
+                android:layout_height="39dp"
+                android:layout_weight="3"
+                android:layout_gravity="center"
+                android:background="@drawable/shape_button"
+                android:text="send" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,15 @@
+/FlynDroid/build/*
+/viewpagerindicator/build/*
+/ImageGallery/build/*
+/SlidingMenu/build/*
+/.idea/*
+/.gradle/*
+/build/*
+/gradle/*
+/FlynDroid/FlynDroid.iml
+/ImageGallery/ImageGallery.iml
+/SlidingMenu/SlidingMenu.iml
+/viewpagerindicator/viewpagerindicator.iml
+/flydroid.iml
+/app.iml
+/app/app.iml

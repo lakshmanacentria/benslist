@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ca_parent"
+    android:layout_width="@dimen/max_content_width"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+	android:paddingTop="15dip"
+	android:paddingBottom="15dip"
+    android:layout_gravity="center_horizontal"
+	style="@style/content_side_padding">
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+
+				<com.acentria.benslist.elements.FlyEditText
+					android:id="@+id/username"
+					android:layout_width="fill_parent"
+					android:layout_height="44dp"
+					android:background="@drawable/edit_text"
+					android:hint="android_hint_username"
+					android:inputType="textVisiblePassword|textNoSuggestions"
+					android:singleLine="true"
+					android:textColor="@color/field_edit_text_color"
+					android:textSize="16sp" />
+
+			 	<com.acentria.benslist.elements.FlyEditText
+					android:id="@+id/email"
+					android:layout_width="fill_parent"
+					android:layout_height="44dp"
+					android:layout_marginTop="15dip"
+					android:background="@drawable/edit_text"
+					android:hint="android_hint_email"
+					android:inputType="textEmailAddress"
+					android:singleLine="true"
+					android:textColor="@color/field_edit_text_color"
+					android:textSize="16sp" />
+
+				<com.acentria.benslist.elements.FlyEditText
+					android:id="@+id/password"
+					android:layout_width="fill_parent"
+					android:layout_height="44dp"
+					android:layout_marginTop="15dip"
+					android:background="@drawable/edit_text"
+					android:hint="android_hint_password"
+					android:inputType="textWebPassword"
+					android:singleLine="true"
+					android:textColor="@color/field_edit_text_color"
+					android:textSize="16sp" />
+
+			 	<Spinner
+					android:id="@+id/type"
+					android:layout_width="fill_parent"
+					android:layout_height="44dp"
+					android:layout_marginTop="15dip"
+					android:background="@drawable/spinner"
+					android:spinnerMode="dropdown" />
+
+				<LinearLayout
+					android:id="@+id/agreements"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:visibility="gone"
+					android:orientation="vertical">
+
+				</LinearLayout>
+
+				<LinearLayout
+					android:id="@+id/second_step"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:visibility="gone"
+					android:orientation="vertical">
+
+				</LinearLayout>
+
+			 	<com.acentria.benslist.elements.FlyButton
+					android:id="@+id/submit"
+					android:layout_width="fill_parent"
+					android:layout_height="44dp"
+					android:layout_marginTop="20dip"
+					android:text="submit"
+					android:background="@drawable/shape_button"
+					style="@style/orange_button" />
+    
+		</LinearLayout>
+
+	</ScrollView>
+
+</LinearLayout>

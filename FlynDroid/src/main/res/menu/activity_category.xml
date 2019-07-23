@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <item android:id="@+id/menu_sorting"
+		android:icon="@mipmap/ic_action_sorting"
+		android:title="android_menu_sorting"
+		android:visible="true"
+		app:showAsAction="always" />
+    
+    <item
+        android:id="@+id/menu_category_settings"
+		android:icon="@mipmap/category_settings"
+		android:title="Category Settings"
+		android:visible="false"
+		app:showAsAction="always" />
+    
+</menu>

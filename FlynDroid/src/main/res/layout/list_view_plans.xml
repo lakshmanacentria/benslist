@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    
+    <ScrollView
+        android:id="@+id/plans_scroll"
+        android:layout_width="fill_parent"
+		android:layout_height="0dip"
+		android:layout_weight="1"
+		android:paddingTop="15dip"
+		android:clipToPadding="false">
+		
+        <LinearLayout
+            android:id="@+id/plans_container"
+            android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+        	    
+        </LinearLayout>
+        
+	</ScrollView>
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:paddingTop="10dip"
+		android:paddingBottom="15dip"
+        style="@style/content_side_padding">
+        
+	    <com.acentria.benslist.elements.FlyButton
+			android:id="@+id/select_plan"
+			android:layout_width="match_parent"
+			android:layout_height="44dp"
+			android:text="select_plan_button"
+			android:background="@drawable/shape_button"
+			style="@style/orange_button" />
+	    
+	</LinearLayout>
+
+</LinearLayout>

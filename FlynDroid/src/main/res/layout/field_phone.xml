@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layoutDirection="ltr"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    
+		<TextView
+			android:id="@+id/plus_sign"
+			android:layout_width="wrap_content"
+			android:layout_height="44dip"
+			android:text="+"
+			android:layout_marginRight="7dip"
+			android:layout_marginEnd="7dip"/>
+
+		<com.acentria.benslist.elements.FlyEditText
+			android:id="@+id/code"
+			android:layout_width="55dip"
+			android:layout_height="44dip"
+			android:singleLine="true"
+			android:textSize="16sp"
+			android:maxLength="4"
+			android:hint="phone_code"
+			android:textColor="@color/field_edit_text_color"
+			android:inputType="number"
+			android:background="@drawable/edit_text" />
+
+		<TextView
+			android:id="@+id/area_divider"
+			android:layout_width="wrap_content"
+			android:layout_height="44dip"
+			android:text="-"
+			android:layout_marginLeft="7dip"
+			android:layout_marginRight="7dip"
+			android:layout_marginEnd="7dip"
+			android:layout_marginStart="7dip" />
+
+		<com.acentria.benslist.elements.FlyEditText
+			android:id="@+id/area"
+			android:layout_width="55dip"
+			android:layout_height="44dip"
+			android:hint="phone_area"
+			android:singleLine="true"
+			android:inputType="number"
+			android:textSize="16sp"
+			android:textColor="@color/field_edit_text_color"
+			android:background="@drawable/edit_text" />
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="44dip"
+			android:text="-"
+			android:layout_marginLeft="7dip"
+			android:layout_marginRight="7dip"
+			android:layout_marginStart="7dip"
+			android:layout_marginEnd="7dip" />
+
+		<EditText
+			android:id="@+id/number"
+			android:layout_width="0dip"
+			android:layout_height="44dip"
+			android:layout_weight="1"
+			android:singleLine="true"
+			android:textSize="16sp"
+			android:inputType="number"
+			android:textColor="@color/field_edit_text_color"
+			android:background="@drawable/edit_text" />
+	
+    </LinearLayout>
+
+    <include layout="@layout/field_error_view" />
+
+</LinearLayout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/accept_field"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="android_i_accept"
+            android:checked="false"
+            android:textColor="#484848" />
+
+       <com.acentria.benslist.elements.FlyTextView
+            android:id="@+id/terms_field"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="6dp"
+            android:text="android_terms_of_use"
+            style="@style/static_link" />
+
+    </LinearLayout>
+
+    <include layout="@layout/field_error_view" />
+
+</LinearLayout>

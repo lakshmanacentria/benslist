@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content">
+	
+    <LinearLayout
+		android:orientation="horizontal"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:gravity="bottom">
+		
+	    <TextView
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textColor="#484848"
+	        android:paddingBottom="7dip"
+	        android:textSize="16sp"
+	        android:id="@+id/name" />
+	    
+	    <com.acentria.benslist.elements.FlyTextView
+	        android:layout_width="0dp"
+			android:layout_weight="1"
+	        android:layout_height="wrap_content"
+	        android:textColor="#000000"
+	        android:paddingBottom="7dip"
+	        android:layout_marginLeft="4dip"
+			android:layout_marginStart="4dip"
+	        android:textSize="16sp"
+	        android:text="android_any"
+	        android:id="@+id/range" />
+
+		<Spinner
+			android:layout_width="wrap_content"
+			android:layout_height="28dp"
+			android:visibility="gone"
+			android:gravity="right"
+			android:background="@drawable/spinner_currency"
+			android:id="@+id/currency_spiner"
+			android:spinnerMode="dropdown" />
+
+    </LinearLayout>
+    
+</LinearLayout>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/login_form"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_height="fill_parent"
+            android:layout_width="@dimen/max_content_width"
+            android:orientation="vertical"
+            android:gravity="top"
+            android:paddingTop="15dip"
+            android:layout_gravity="center_horizontal"
+            style="@style/content_side_padding">
+
+            <com.facebook.login.widget.LoginButton
+                android:id="@+id/fbLogin"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textSize="16sp"
+                android:visibility="gone"
+                android:text="android_fb_login"
+                android:background="@drawable/shape_button_fb"
+                style="@style/orange_button" />
+
+            <com.acentria.benslist.elements.FlyTextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="android_or"
+                android:visibility="gone"
+                android:tag="fbview"
+                style="@style/or_divider" />
+
+            <com.acentria.benslist.elements.FlyEditText
+                android:id="@+id/username"
+                android:layout_width="fill_parent"
+                android:layout_height="44dp"
+                android:background="@drawable/edit_text"
+                android:hint="android_hint_username"
+                android:inputType="textVisiblePassword|textNoSuggestions"
+                android:singleLine="true"
+                android:textColor="@color/field_edit_text_color"
+                android:textSize="16sp" />
+
+            <com.acentria.benslist.elements.FlyEditText
+                android:id="@+id/password"
+                android:layout_width="fill_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="15dip"
+                android:background="@drawable/edit_text"
+                android:hint="android_hint_password"
+                android:inputType="textPassword"
+                android:textColor="@color/field_edit_text_color"
+                android:textSize="16sp" />
+
+            <com.acentria.benslist.elements.FlyButton
+                android:id="@+id/login"
+                android:layout_width="fill_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="20dip"
+                android:text="android_login"
+                android:background="@drawable/shape_button"
+                style="@style/orange_button" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dip">
+
+                <com.acentria.benslist.elements.FlyTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="android_forgot_password"
+                    style="@style/static_text" />
+
+                <com.acentria.benslist.elements.FlyTextView
+                    android:id="@+id/reset_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="android_password_reset_here"
+                    android:paddingLeft="5dip"
+                    android:paddingStart="5dip"
+                    android:linksClickable="true"
+                    style="@style/static_link" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dip"
+                android:paddingBottom="5dip"
+                android:gravity="center">
+
+                <com.acentria.benslist.elements.FlyTextView
+                    android:id="@+id/registration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="android_create_an_account"
+                    android:linksClickable="true"
+                    android:padding="10dip"
+                    style="@style/static_link" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

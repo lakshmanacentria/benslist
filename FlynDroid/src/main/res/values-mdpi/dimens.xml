@@ -1,0 +1,14 @@
+<resources>
+    <dimen name="slidingmenu_offset">60dp</dimen>
+    <dimen name="map_host_height">100dip</dimen>
+    <dimen name="home_grid_column_width">110dip</dimen>
+    <dimen name="welcome_max_form_width">280dip</dimen>
+    <dimen name="category_text_size">17dp</dimen>
+    <dimen name="details_table_field_name_width">90dp</dimen>
+    <dimen name="display_form_row_name_width">65dp</dimen>
+    <dimen name="max_content_width">-1.0px</dimen>
+    <dimen name="bool_field_name_width">90dp</dimen>
+    <dimen name="pictures_grid_column_width">110dip</dimen>
+
+    <integer name="num_cols">1</integer>
+</resources>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/main_report"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical" >
+
+	<ScrollView
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_above="@+id/send_report_box"
+		android:layout_weight="1">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_above="@+id/send_content"
+			android:padding="10dp"
+			android:orientation="vertical">
+
+			<RadioGroup
+				android:id="@+id/report_list"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content" />
+
+			<com.acentria.benslist.elements.FlyEditText
+				android:id="@+id/report_description"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:lines="4"
+				android:background="@drawable/edit_text"
+				android:gravity="top|left|start"
+				android:inputType="textMultiLine"
+				android:singleLine="false"
+				android:layout_marginTop="10dp"
+				android:textSize="16sp"
+				android:textColor="#2b2b2b"
+				android:paddingTop="7dp"
+				android:visibility="gone"
+				android:hint="comments_message" />
+
+		</LinearLayout>
+
+	</ScrollView>
+
+	<LinearLayout
+		android:id="@+id/send_report_box"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		android:paddingTop="5dp"
+		android:paddingBottom="5dp"
+		android:paddingLeft="15dp"
+		android:paddingEnd="15dp"
+		android:paddingStart="15dp"
+		android:paddingRight="15dp"
+		android:layout_marginTop="5dp"
+		android:orientation="horizontal" >
+
+		<com.acentria.benslist.elements.FlyButton
+			android:id="@+id/send_report"
+			style="@style/orange_button"
+			android:layout_width="fill_parent"
+			android:layout_height="39dp"
+			android:layout_weight="3"
+			android:layout_gravity="center"
+			android:background="@drawable/shape_button"
+			android:text="android_send_report" />
+
+	</LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_messages"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/message_area"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/send_content"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:orientation="vertical">
+
+        <include layout="@layout/list_view_custom"></include>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/send_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/listing_border"
+        android:layout_alignParentBottom="true"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="15dp"
+        android:paddingEnd="15dp"
+        android:paddingStart="15dp"
+        android:paddingRight="15dp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal" >
+
+
+        <com.acentria.benslist.elements.FlyEditText
+            android:id="@+id/add_message"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:gravity="top"
+            android:layout_weight="1"
+            android:background="@drawable/edit_text"
+            android:inputType="text"
+            android:paddingTop="10dp"
+            android:singleLine="true"
+            android:textColor="@color/field_edit_text_color"
+            android:hint="message"
+            android:textSize="16sp" />
+
+        <com.acentria.benslist.elements.FlyButton
+            android:id="@+id/send"
+            style="@style/orange_button"
+            android:layout_width="fill_parent"
+            android:layout_height="39dp"
+            android:layout_weight="3"
+            android:layout_gravity="center"
+            android:background="@drawable/shape_button"
+            android:text="send" />
+
+    </LinearLayout>
+
+</RelativeLayout>

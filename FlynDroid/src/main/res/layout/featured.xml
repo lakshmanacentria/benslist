@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.acentria.benslist.adapters.SquareLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/featured_item"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:background="#e8e8e8"
+	android:gravity="center">
+
+	<ImageView
+	    android:id="@+id/thumbnail_image"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:background="@drawable/featured_loading"
+	    android:scaleType="centerCrop" />
+		
+	<RelativeLayout
+	    android:id="@+id/listing_info_container"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentBottom="true"
+	    android:visibility="invisible"
+	    android:background="@color/transparent_dark_bar">
+
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	   		android:layout_height="wrap_content"
+	        android:orientation="vertical"
+	        android:paddingTop="2dp"
+	        android:paddingBottom="4dp"
+	        android:paddingRight="9dp"
+	        android:paddingEnd="9dp"
+	        android:paddingStart="9dp"
+	        android:paddingLeft="9dp">
+	        
+		    <TextView
+		        android:id="@+id/featured_title"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:text="Chevrolete Cobalt"
+		        android:ellipsize="end"
+		        android:singleLine="true"
+		        style="@style/featured_box_title" />
+	
+		    <TextView
+		        android:id="@+id/featured_price"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:text="$ 15,000"
+		        android:ellipsize="end"
+		        android:singleLine="true"
+		        style="@style/featured_box_price" />
+	    
+	    </LinearLayout>
+	    
+	</RelativeLayout>
+
+</com.acentria.benslist.adapters.SquareLayout>

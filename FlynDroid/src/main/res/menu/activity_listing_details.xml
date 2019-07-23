@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/edit_listing_button"
+        android:title="edit_listing_button"
+        android:orderInCategory="1"
+        app:showAsAction="never"
+        android:visible="true" />
+    <item
+        android:id="@+id/map_type"
+        android:title="android_menu_map_type"
+        android:orderInCategory="2"
+        app:showAsAction="never"
+        android:visible="true"/>
+    <item
+        android:id="@+id/contact_owner"
+        android:title="android_contact_owner_caption"
+        android:orderInCategory="3"
+        app:showAsAction="never"
+        android:visible="true"/>
+    <item
+        android:id="@+id/report_listing"
+        android:title="android_report_listing"
+        android:orderInCategory="4"
+        app:showAsAction="never"
+        android:visible="false"/>
+</menu>

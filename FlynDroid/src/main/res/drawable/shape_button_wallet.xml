@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:state_pressed="true">  
+	    <layer-list>
+			<item>      
+				<shape android:shape="rectangle">
+					<corners android:radius="1dp" />
+					<solid android:color="#646464" />
+				</shape>
+			</item>
+			<item android:bottom="1dp">
+				<shape android:shape="rectangle">
+				    <corners android:radius="1dp" />
+					<solid android:color="#9d9d9d" />
+					<padding 
+					    android:top="5dip"
+					    android:bottom="7dip" />
+				</shape>
+			</item>
+			<item>
+			    <bitmap
+		            android:src="@mipmap/left_wallet"
+		            android:gravity="left"
+		            android:tileMode="disabled" />
+			</item>
+		</layer-list>
+	</item>
+    <item>
+        <layer-list>
+			<item>
+				<shape android:shape="rectangle">
+				    <corners android:radius="1dp" />
+					<solid android:color="#646464" />
+				</shape>
+			</item>
+			<item android:bottom="1dp">
+				<shape android:shape="rectangle">
+				    <corners android:radius="1dp" />
+					<solid android:color="#8d8d8d" />
+					<padding 
+					    android:top="5dip"
+					    android:bottom="7dip" />
+				</shape>
+			</item>
+			<item>
+		        <bitmap
+		            android:src="@mipmap/left_wallet"
+		            android:gravity="left"
+		            android:tileMode="disabled" />
+		    </item>
+		</layer-list>
+    </item>
+</selector>

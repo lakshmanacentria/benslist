@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.acentria.benslist"
+    android:versionCode="17"
+    android:versionName="3.2.0">
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="26" />
+
+    <permission
+        android:name="com.acentria.benslist.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.acentria.benslist.permission.MAPS_RECEIVE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="com.android.vending.BILLING" />
+
+    <!-- for card.io card scanning -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+
+    <!-- for most things, including card.io & paypal -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <!-- permission for push notification -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <permission
+        android:name="com.acentria.benslist.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.acentria.benslist.permission.C2D_MESSAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.acentria.benslist.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.acentria.benslist.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-feature android:name="android.hardware.location.gps" />
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <application
+        android:name="android.support.multidex.MultiDexApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <receiver
+            android:name="com.acentria.benslist.GcmReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="com.acentria.benslist" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="com.acentria.benslist.GcmIntentService" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_key" />
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/app_id" />
+        <meta-data
+            android:name="com.facebook.sdk.AutoLogAppEventsEnabled"
+            android:value="false" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="firebase_analytics_collection_enabled"
+            android:value="false" />
+        <meta-data
+            android:name="firebase_analytics_collection_deactivated"
+            android:value="true" />
+
+        <!-- Include the AdActivity configChanges and theme. -->
+        <activity
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:theme="@android:style/Theme.Translucent" />
+
+        <service
+            android:name="com.paypal.android.sdk.payments.PayPalService"
+            android:exported="false" />
+
+        <activity android:name="com.paypal.android.sdk.payments.PaymentActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.LoginActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.PaymentMethodActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.PaymentConfirmActivity" />
+        <activity
+            android:name="io.card.payment.CardIOActivity"
+            android:configChanges="keyboardHidden|orientation" />
+        <activity android:name="io.card.payment.DataEntryActivity" />
+        <activity
+            android:name="com.acentria.benslist.FlynDroid"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_flyn_droid"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.Launch">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.acentria.benslist.preferences.Preferences"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity
+            android:name="com.acentria.benslist.ListingDetailsActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_blank"
+            android:theme="@style/Theme.FlynaxDefault" />
+        <activity
+            android:name="com.acentria.benslist.GalleryActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_blank"
+            android:theme="@style/Theme.FlynaxDefault" />
+        <activity
+            android:name="com.acentria.benslist.SearchAroundActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_blank"
+            android:theme="@style/Theme.FlynaxDefault" />
+        <activity
+            android:name="com.acentria.benslist.SearchResultsActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_blank"
+            android:theme="@style/Theme.FlynaxDefault" />
+        <activity
+            android:name="com.acentria.benslist.CategoryActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_blank"
+            android:theme="@style/Theme.FlynaxDefault" />
+        <activity
+            android:name="com.acentria.benslist.AccountDetailsActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_blank"
+            android:theme="@style/Theme.FlynaxDefault" />
+        <activity
+            android:name="com.acentria.benslist.YoutubeActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_blank"
+            android:theme="@style/Theme.FlynaxDefault" />
+        <activity
+            android:name="com.acentria.benslist.SearchAccountActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_blank"
+            android:theme="@style/Theme.FlynaxDefault" />
+        <activity
+            android:name="com.acentria.benslist.AboutAppActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_blank"
+            android:theme="@style/Theme.FlynaxDefault" />
+        <activity
+            android:name="com.acentria.benslist.SendFeedbackActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_blank"
+            android:theme="@style/Theme.FlynaxDefault" />
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.acentria.benslist.CreateAccountActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_blank"
+            android:theme="@style/Theme.FlynaxDefault" />
+        <activity
+            android:name="com.acentria.benslist.ResetPasswordActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_blank"
+            android:theme="@style/Theme.FlynaxDefault" />
+        <activity
+            android:name="com.acentria.benslist.EditProfileActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_blank"
+            android:theme="@style/Theme.FlynaxDefault" />
+        <activity
+            android:name="com.acentria.benslist.AddListingActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_blank"
+            android:theme="@style/Theme.FlynaxDefault" />
+        <activity
+            android:name="com.acentria.benslist.PurchaseActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_blank"
+            android:theme="@style/Theme.FlynaxDefault" />
+        <activity
+            android:name="com.acentria.benslist.PlansActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_blank"
+            android:theme="@style/Theme.FlynaxDefault" />
+        <activity
+            android:name="com.acentria.benslist.CommentsActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_blank"
+            android:theme="@style/Theme.FlynaxDefault" />
+        <activity
+            android:name="com.acentria.benslist.MessagesActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_blank"
+            android:theme="@style/Theme.FlynaxDefault"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.acentria.benslist.ContactOwnerActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_blank"
+            android:theme="@style/Theme.FlynaxDefault" />
+        <activity
+            android:name="com.acentria.benslist.PackageActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_blank"
+            android:theme="@style/Theme.FlynaxDefault" />
+        <activity
+            android:name="com.acentria.benslist.AcceptActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_blank"
+            android:theme="@style/Theme.FlynaxDefault" />
+        <activity
+            android:name="com.acentria.benslist.ReportListingActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_blank"
+            android:theme="@style/Theme.FlynaxDefault" />
+        <activity
+            android:name="com.acentria.benslist.LoginActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_blank"
+            android:theme="@style/Theme.FlynaxDefault" />
+        <activity
+            android:name="com.paypal.android.MEP.PayPalActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.acentria.benslist.ToursOnMapActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_blank"
+            android:theme="@style/Theme.FlynaxDefault" />
+    </application>
+
+</manifest>

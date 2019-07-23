@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/max_content_width"
+    android:layout_height="fill_parent"
+    android:scrollbarStyle="outsideOverlay">
+
+    <LinearLayout
+        android:id="@+id/buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="10dip"
+        style="@style/content_side_padding">
+	        
+		<LinearLayout 
+			android:layout_width="match_parent"
+        	android:layout_height="wrap_content"
+        	android:orientation="horizontal"
+        	android:paddingBottom="15dip">
+        	
+		    <TextView
+		        android:id="@+id/title"
+				android:layout_width="0dip"
+        		android:layout_height="wrap_content"
+        		android:layout_weight="1"
+        		android:textSize="18sp"
+				android:minLines="1"
+				android:maxLines="3"
+        		style="@style/purchase_title" />
+		    
+		    <TextView
+		        android:id="@+id/amount"
+				android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+				android:paddingLeft="15dp"
+				android:paddingStart="15dp"
+        		style="@style/purchase_price" />
+		    
+		</LinearLayout>
+		
+		<com.acentria.benslist.elements.FlyButton
+			android:id="@+id/pay_paypal"
+			android:layout_width="match_parent"
+			android:layout_height="44dp"
+			android:text="order_pay_by_paypal"
+			android:background="@drawable/shape_button_paypal"
+            android:layout_marginBottom="15dip"
+			android:visibility="gone"
+			style="@style/orange_button" />
+		
+		<com.acentria.benslist.elements.FlyButton
+			android:id="@+id/pay_google"
+			android:layout_width="match_parent"
+			android:layout_height="44dp"
+			android:text="order_pay_by_google"
+			android:background="@drawable/shape_button_wallet"
+			android:layout_marginBottom="15dip"
+			android:visibility="gone"
+			style="@style/orange_button" />
+		
+	</LinearLayout>
+	
+</ScrollView>

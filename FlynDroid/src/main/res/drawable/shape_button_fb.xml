@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:state_pressed="true">  
+	    <layer-list>
+			<item>      
+				<shape android:shape="rectangle">
+					<corners android:radius="1dp" />
+					<solid android:color="#6681b3" />
+				</shape>
+			</item>
+			<item android:bottom="1dp">
+				<shape android:shape="rectangle">
+				    <corners android:radius="1dp" />
+					<solid android:color="#6681b3" />
+					<padding 
+					    android:top="5dip"
+					    android:bottom="7dip" />
+				</shape>
+			</item>
+			<item>
+			    <bitmap
+		            android:src="@mipmap/fb_divider"
+		            android:gravity="left"
+		            android:tileMode="disabled" />
+			</item>
+		</layer-list>
+	</item>
+    <item>
+        <layer-list>
+			<item>
+				<shape android:shape="rectangle">
+				    <corners android:radius="1dp" />
+					<solid android:color="#355184" />
+				</shape>
+			</item>
+			<item android:bottom="1dp">
+				<shape android:shape="rectangle">
+				    <corners android:radius="1dp" />
+					<solid android:color="#516ea3" />
+					<padding 
+					    android:top="5dip"
+					    android:bottom="7dip" />
+				</shape>
+			</item>
+			<item>
+		        <bitmap
+		            android:src="@mipmap/fb_divider"
+		            android:gravity="left"
+		            android:tileMode="disabled" />
+		    </item>
+		</layer-list>
+    </item>
+</selector>

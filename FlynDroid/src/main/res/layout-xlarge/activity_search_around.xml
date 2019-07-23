@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:orientation="horizontal">
+
+    <FrameLayout
+        android:id="@+id/arround_content_frame"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2.5">
+        
+        <RelativeLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="match_parent"
+		    android:orientation="vertical"
+		    android:gravity="center">
+		    
+		    <LinearLayout
+		        android:id="@+id/mapContainer"
+		        android:layout_width="match_parent"
+				android:layout_height="match_parent">
+		    
+			    <fragment
+					android:id="@+id/map"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					tools:context="com.acentria.benslist.SearchAroundActivity"
+					class="com.google.android.gms.maps.SupportMapFragment" />
+			    
+		    </LinearLayout>
+		    
+		    <LinearLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="horizontal"
+		        android:layout_alignParentBottom="true"
+		        android:background="@color/transparent_dark_bar"
+		        android:padding="10dip" >
+		        
+		        <TextView
+		            android:id="@+id/counter"
+		            android:layout_width="0dip"
+		            android:layout_height="match_parent"
+		            android:layout_gravity="top"
+		            android:layout_weight="1"
+		            android:textColor="#ffffff"
+		            android:textSize="17sp" />
+		        
+		    </LinearLayout>
+		    
+		</RelativeLayout>
+        
+	</FrameLayout>
+	
+	<FrameLayout
+		android:id="@+id/arround_menu_frame"
+		android:layout_width="0dp"
+		android:layout_height="match_parent"
+		android:layout_weight="1">
+	    
+		<LinearLayout
+	        android:id="@+id/listContainer"
+	        android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="vertical"
+			android:layout_alignParentBottom="true" />
+	    
+	</FrameLayout>
+
+</LinearLayout>

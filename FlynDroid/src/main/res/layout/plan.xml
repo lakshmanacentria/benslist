@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    style="@style/content_side_padding">
+    
+	<LinearLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:background="@drawable/plan_border"
+	    android:paddingBottom="1dip">
+	
+	    <LinearLayout
+		    android:id="@+id/color"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:paddingLeft="7dip"
+			android:paddingStart="7dip"
+		    android:background="@color/plan_default_color">
+		    
+		    <LinearLayout
+			    android:layout_width="fill_parent"
+			    android:layout_height="wrap_content"
+			    android:orientation="vertical"
+			    android:background="#B3FFFFFF">
+			    
+		        <LinearLayout
+		            android:layout_width="fill_parent"
+			    	android:layout_height="wrap_content"
+			    	android:orientation="vertical"
+			    	android:paddingLeft="15dp"
+			    	android:paddingEnd="15dp"
+			    	android:paddingStart="15dp"
+				    android:paddingRight="15dp"
+				    android:paddingTop="8dp"
+				    android:paddingBottom="0dp">
+	    
+		            <LinearLayout
+					    android:layout_width="fill_parent"
+					    android:layout_height="wrap_content"
+					    android:orientation="horizontal">
+					    
+					    <TextView
+					        android:id="@+id/title"
+					        android:layout_width="0dip"
+					    	android:layout_height="wrap_content"
+					    	android:layout_weight="1"
+					    	android:paddingRight="10dip"
+							android:paddingEnd="10dip"
+					    	android:textColor="#111111"
+					    	android:textSize="19sp"
+					    	android:maxLines="2"
+					    	android:ellipsize="end"
+					    	android:textStyle="bold" />
+					    
+					    <TextView
+			                android:id="@+id/price"
+			                android:layout_width="wrap_content"
+					    	android:layout_height="wrap_content"
+					    	android:textColor="#af5300"
+					    	android:textSize="19sp"
+					    	android:textStyle="bold"
+					    	android:text="Free" />
+					    
+					</LinearLayout>
+				    
+				    <TextView
+				        android:id="@+id/type"
+				        android:layout_width="wrap_content"
+				    	android:layout_height="wrap_content"
+				    	android:paddingTop="1dip"
+				    	android:textColor="#666666"
+				    	android:textSize="12sp" />
+				    
+				    <LinearLayout
+				        android:layout_width="match_parent"
+				    	android:layout_height="wrap_content"
+				    	android:paddingTop="11dip"
+				    	android:paddingBottom="11dip"
+				    	android:orientation="horizontal">
+				        
+				        <LinearLayout
+				            android:id="@+id/photo"
+				            android:layout_width="wrap_content"
+					        android:layout_height="wrap_content"
+					        android:layout_marginRight="18dp"
+							android:layout_marginEnd="18dp"
+					        android:visibility="gone">
+				            
+					        <ImageView
+					            android:layout_width="wrap_content"
+					            android:layout_height="wrap_content"
+					            android:layout_gravity="center"
+					            android:paddingRight="9dip"
+					            android:paddingEnd="9dip"
+					            android:src="@mipmap/plan_photo" />
+					        
+					        <TextView
+					            android:tag="text"
+					            android:layout_width="wrap_content"
+					    		android:layout_height="wrap_content"
+					    		android:textColor="#111111"
+					    		android:textSize="19sp"
+					    		android:textStyle="bold"
+					    		android:maxLines="1"
+					    		android:ellipsize="end"
+					    		android:text="5" />
+					        
+						</LinearLayout>
+				        
+				        <LinearLayout
+				            android:id="@+id/video"
+				            android:layout_width="wrap_content"
+					        android:layout_height="wrap_content"
+					        android:layout_marginRight="18dp"
+							android:layout_marginEnd="18dp"
+					        android:visibility="gone">
+					        
+					        <ImageView
+					            android:layout_width="wrap_content"
+					            android:layout_height="wrap_content"
+					            android:layout_gravity="center"
+					            android:paddingRight="9dip"
+					            android:paddingEnd="9dip"
+					            android:src="@mipmap/plan_video" />
+					        
+					        <TextView
+					            android:tag="text"
+					            android:layout_width="wrap_content"
+					    		android:layout_height="wrap_content"
+					    		android:textColor="#111111"
+					    		android:textSize="19sp"
+					    		android:textStyle="bold"
+					    		android:maxLines="1"
+					    		android:ellipsize="end"
+					    		android:text="5" />
+					        
+						</LinearLayout>
+				        
+				        <LinearLayout
+				            android:id="@+id/listing_live"
+				            android:layout_width="wrap_content"
+					        android:layout_height="wrap_content">
+					        
+					        <ImageView
+					            android:layout_width="wrap_content"
+					            android:layout_height="wrap_content"
+					            android:layout_gravity="center"
+					            android:paddingRight="9dip"
+					            android:paddingEnd="9dip"
+					            android:src="@mipmap/plan_live" />
+					        
+					        <TextView
+					            android:tag="text"
+					            android:layout_width="wrap_content"
+					    		android:layout_height="wrap_content"
+					    		android:textColor="#111111"
+					    		android:textSize="19sp"
+					    		android:textStyle="bold"
+					    		android:maxLines="1"
+					    		android:text="5" />
+					        
+						</LinearLayout>
+				        
+				    </LinearLayout>
+				    
+				</LinearLayout>
+			    
+			    <RadioGroup
+			        android:id="@+id/radio_group"
+			        android:layout_width="fill_parent"
+			    	android:layout_height="wrap_content"
+			    	android:orientation="horizontal"
+					android:background="#fff"
+			    	android:paddingTop="5dp"
+			    	android:paddingBottom="5dp"
+			    	android:paddingRight="8dp"
+			    	android:paddingEnd="8dp"
+					android:paddingLeft="8dp"
+					android:paddingStart="8dp"
+					android:layout_gravity="top">
+			    
+				    <RadioButton
+						android:id="@+id/standard_button"
+		                android:layout_width="wrap_content"
+				    	android:layout_height="wrap_content"
+				    	android:tag="standard"
+						android:gravity="center_vertical"/>
+
+					<LinearLayout
+						android:id="@+id/standard_box"
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:layout_gravity="center_vertical"
+						android:paddingLeft="5dp"
+						android:paddingStart="5dp"
+						android:orientation="vertical">
+
+						<TextView
+							android:id="@+id/standard_button_name"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:textColor="#666666"
+							android:textSize="12sp"
+							android:text="standard"/>
+
+						<TextView
+							android:id="@+id/standard_button_count"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:textColor="#000000"
+							android:textSize="16sp"
+							android:textStyle="bold"
+							android:visibility="gone"
+							android:text="6 ads"/>
+
+					</LinearLayout>
+
+					<View
+						android:id="@+id/spliter"
+						android:layout_width="1dip"
+						android:layout_height="fill_parent"
+						android:layout_marginLeft="10dp"
+						android:layout_marginRight="10dp"
+						android:background="#d4d4d4"
+						android:orientation="vertical" />
+				    
+					<RadioButton
+						android:id="@+id/featured_button"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:tag="featured"
+						android:gravity="center_vertical"/>
+
+					<LinearLayout
+						android:id="@+id/featured_box"
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						android:layout_gravity="center_vertical"
+						android:paddingLeft="5dp"
+						android:paddingStart="5dp"
+						android:orientation="vertical">
+
+						<TextView
+							android:id="@+id/featured_button_name"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:textColor="#666666"
+							android:textSize="12sp"
+							android:text="standard"/>
+
+						<TextView
+							android:id="@+id/featured_button_count"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:textColor="#000000"
+							android:textSize="16sp"
+							android:textStyle="bold"
+							android:visibility="gone"
+							android:text="6 ads"/>
+
+					</LinearLayout>
+			    
+			    </RadioGroup>
+			    
+			    <com.acentria.benslist.elements.FlyTextView
+			        android:id="@+id/notice_text"
+			        android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:paddingTop="12dip"
+				    android:paddingBottom="5dip"
+				    android:paddingLeft="15dip"
+				    android:paddingStart="15dip"
+				    android:paddingRight="15dip"
+				    android:paddingEnd="15dip"
+				    android:text="plan_usage_exceeded"
+				    android:visibility="gone"
+				    style="@style/notice_message" />
+			    
+			    <TextView
+			        android:id="@+id/description"
+			        android:layout_width="wrap_content"
+			    	android:layout_height="wrap_content"
+			    	android:visibility="gone"
+			    	android:textColor="#6f6f6f"
+			    	android:maxLines="2"
+			    	android:ellipsize="end"
+			    	android:lineSpacingExtra="3dip"
+			    	android:textSize="14sp" />
+	
+			</LinearLayout>		    
+		    
+		</LinearLayout>
+	    
+	</LinearLayout>
+	
+</LinearLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+       android:layout_width="fill_parent"
+       android:layout_height="fill_parent"
+       android:orientation="vertical"
+       android:gravity="center_horizontal">
+
+		<TextView
+			android:id="@+id/message"
+			android:background="@drawable/content_logo_bg"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="Message"
+			android:textSize="19sp"
+			android:textColor="#0f1c1e"
+			android:gravity="center_horizontal"
+			android:paddingTop="150dip"
+			android:paddingLeft="35dip"
+			android:paddingStart="35dip"
+			android:paddingRight="35dip"
+			android:paddingEnd="35dip"
+			android:paddingBottom="5dip" />
+
+		<com.acentria.benslist.elements.FlyTextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="android_search_different_criteria"
+			android:textColor="#646464"
+			android:textSize="16sp"
+			android:layout_marginTop="5dp"
+			android:layout_marginBottom="10dp"/>
+
+		<LinearLayout
+			android:id="@+id/save_search_box"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:gravity="center">
+
+			<com.acentria.benslist.elements.FlyTextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="android_or"
+				android:textColor="#646464"
+				android:textSize="16sp"
+				android:layout_marginBottom="10dp"/>
+
+			<com.acentria.benslist.elements.FlyButton
+				android:id="@+id/save_the_search"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="android_save_the_search"
+				android:background="@drawable/shape_button"
+				style="@style/orange_button"/>
+
+		</LinearLayout>
+        
+</LinearLayout>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Ben\'s List</string>
+    <string name="title_activity_flyn_droid">Ben\'s List</string>
+
+    <string name="plugin_min_version">2.2.0</string>
+    <string name="json">true</string>
+
+    <!-- dialog phrases -->
+    <string name="dialog_ok">Ok</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="dialog_invalid_domain">Invalid domain! Please double check domain and try again.</string>
+    <string name="dialog_cache_faild">The site you\'re trying to connect is misconfigured, please contact the administrator</string>
+    <string name="dialog_network_unavailable">Network is currently unavailable.</string>
+    <string name="dialog_network_reset_domain_confirm">Are you sure you want to connect to other website?</string>
+    <string name="dialog_plugin_isset">The website you entered isn\'t available for the application.</string>
+    <string name="dialog_plugin_need_to_update">Please update the Android Connect Plugin to ensure correct performance of the Application.</string>
+    <string name="dialog_host_unavailable">The website you connected isn\'t available now, please try again later.</string>
+    <string name="dialog_no_menu_activity">No activity recourse available for this menu item</string>
+    <string name="dialog_updated_app">Please update the Application to ensure correct performance.</string>
+
+    <!-- welcome activity phases -->
+    <string name="welcome_copyrights">Powered By Ben\'s List Classified Software</string>
+    <string name="welcome_go">Go!</string>
+    <string name="welcome_refresh">Refresh</string>
+    <string name="welcome_try_demo">Or Try Demo</string>
+    <string name="welcome_domain_hint">Enter domain name</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_home">Home page</string>
+    <string name="title_activity_preferences">Preferences</string>
+
+    <!-- user preferences -->
+    <string name="user_pref_category_name">Application settings</string>
+    <string name="user_pref_change_domain">Connect to other website</string>
+    <string name="user_pref_change_domain_summary">Close this website session and start over</string>
+
+    <!-- Customize system messages -->
+    <string name="home_title_mess">Error message</string>
+    <string name="loading">Loading...</string>
+    <string name="edit_listing_id_error">No listing ID specified in Extras</string>
+    <string name="iab_setup_error">In-APP billing setup failed</string>
+    <string name="iab_purchase_error">In-APP billing purchase failed, please try other payment gateway</string>
+    <string name="no_payment_data">No payment data provided</string>
+    <string name="subs_failed">You did not select a subscription</string>
+    <string name="paypal_failed">An invalid Payment or PayPal Configuration was submitted. Please contact Flynax Support</string>
+    <string name="paypal_not_configured">The PayPal gateway doesn\'t configured or disabled</string>
+    <string name="server_curl_failed">The cURL library is unavailable on the server, gateways use cURL are disabled</string>
+    <string name="plans_no_category">No category ID provided, plans activity can\'t be established</string>
+
+    <!--    Permissions    -->
+    <string name="permission_rationale_location">Access to the location service is required to demonstrate the \'my location\' feature, which shows your current location on the map.</string>
+    <string name="location_permission_denied">This sample requires location permission to enable the \'my location\' layer. Please try again and grant access to use the location.\nIf the permission has been permanently denied, it can be enabled from the System Settings &gt; Apps &gt; \'Google Maps API Demos\'.</string>
+    <string name="permission_required_toast">Location permission is required for this demo.</string>
+
+    <!-- Activities -->
+    <string name="title_activity_blank"></string>
+
+    <!-- Other -->
+    <string name="google_key">AIzaSyCsHCL21Q_CdLwUuoqZ_KKUwz-_DBT22Z0</string>
+
+
+    <string name="app_id">379594689340986</string>
+    <string name="play_key">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzeno9RbWTYYm+MtiA9WHOgw7idwlJMyiKnYie1Zb2iRZjPTbqwzmDEW5cjdswyMMkdIAOMKHGYmdfKwJPLJ+QlWrZJ9pTZvvphowYsDeBz+kc0DrFVIz3EGV0gY+mwTv7ZzS6o5o2U+7PTRU2BGbdbSuOU5y3Xm8XfgTiMwb32MEHH4tl1Ll5iP39JUi8JVESg/YI9MdQQNSN9rCjIGU1+xmC88fEsoaYAPQ0MeFMR7DncFdjN7sEIAChpN+y0m1iL6pZkdUC1yKiUMkguf+GDePKXZVOmhwncCFee5vA/yMQRDHbd01f2/RuJ/xqQSnVFT5EmLzzVpazXhoPcgmBwIDAQAB</string>
+
+    <!-- Google Analytics Tracking ID -->
+    <string name="ga_trackingId">UA-36289256-2</string>
+    <bool name="ga_autoActivityTracking">true</bool>
+    <bool name="ga_reportUncaughtExceptions">true</bool>
+    <integer name="ga_dispatchPeriod">60</integer>
+    <string name="title_activity_tours_on_map">ToursOnMapActivity</string>
+</resources>

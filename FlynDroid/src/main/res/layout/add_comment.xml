@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    
+    <ScrollView
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:scrollbars="none"
+		android:layout_weight="1">
+		
+	 	<LinearLayout
+		  	android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="vertical">
+	
+		    <com.acentria.benslist.elements.FlyEditText
+				android:id="@+id/add_author"
+				android:layout_width="fill_parent"
+				android:layout_height="44dp"
+				android:layout_marginLeft="15dp"
+				android:layout_marginRight="15dp"
+				android:layout_marginTop="15dp"
+				android:background="@drawable/edit_text"
+				android:inputType="text"
+				android:singleLine="true"
+				android:textColor="@color/field_edit_text_color"
+				android:textSize="16sp"
+				android:hint="comments_author" />
+		  	
+		    <com.acentria.benslist.elements.FlyEditText
+				android:id="@+id/add_title"
+				android:layout_width="fill_parent"
+				android:layout_height="44dp"
+				android:background="@drawable/edit_text"
+				android:layout_marginLeft="15dp"
+				android:layout_marginRight="15dp"
+				android:layout_marginTop="15dp"
+				android:inputType="text"
+				android:singleLine="true"
+				android:textColor="@color/field_edit_text_color"
+				android:textSize="16sp" 
+				android:hint="comments_title" />
+		     
+			<RatingBar
+				android:id="@+id/add_rating"
+				style="@style/CustomRatingBar"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="15dp"
+				android:layout_marginRight="15dp"
+				android:layout_marginTop="15dp" 
+				android:stepSize="1.0"
+			 	android:numStars="5" />
+			
+		    <com.acentria.benslist.elements.FlyEditText
+				android:id="@+id/add_description"
+				android:layout_marginLeft="15dp"
+				android:layout_marginRight="15dp"
+				android:layout_marginTop="15dp"
+				android:layout_marginBottom="15dp"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:lines="7"
+				android:background="@drawable/edit_text"
+			    android:gravity="top|left|start"
+			    android:inputType="textMultiLine"
+				android:singleLine="false"
+				android:textSize="16sp"
+				android:textColor="#2b2b2b"
+				android:paddingTop="7dp"
+				android:hint="comments_message" />
+		    
+  		</LinearLayout>
+  		
+  	</ScrollView>
+  	
+</LinearLayout>

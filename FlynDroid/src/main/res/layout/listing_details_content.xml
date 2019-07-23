@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/listing_details"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:scrollbars="none"
+	android:layout_weight="1">
+	
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical">
+		
+	    <LinearLayout
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="vertical"
+		    android:background="@drawable/details_header">
+		    
+		    <TextView
+				android:id="@+id/title"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"        
+		        android:text="Listing Title"
+		        style="@style/black_title" />
+		    
+		    <LinearLayout
+			    android:layout_width="fill_parent"
+			    android:layout_height="wrap_content"
+			    android:orientation="horizontal">
+			    
+			    <TextView
+			        android:id="@+id/price"
+			        android:ellipsize="end"
+        			android:singleLine="true"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:paddingTop="3dp"
+			        android:text=""
+			        android:layout_weight="1"
+			        style="@style/price" />
+			    
+				<ImageView
+			        android:id="@+id/icon_comments"
+			        android:src="@mipmap/details_icon_comments"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        style="@style/details_header_icon" />
+				
+				<ImageView
+			        android:id="@+id/icon_share"
+			        android:src="@drawable/icon_share_state"
+			        android:clickable="true"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        style="@style/details_header_icon" />
+				
+				<ImageView
+			        android:id="@+id/icon_like"
+			        android:src="@mipmap/details_icon_like"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        style="@style/details_header_icon" />
+					
+			</LinearLayout>
+		         
+		</LinearLayout>
+	    
+	    <LinearLayout
+	        android:id="@+id/main_details"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+	
+			<HorizontalScrollView
+			    android:id="@+id/horizontal_scroll"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:background="#d4d4d4"
+				android:scrollbars="none"
+				android:fillViewport="true">
+		
+				<LinearLayout
+					android:id="@+id/gallery"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal"
+					android:paddingTop="5dp"
+					android:paddingBottom="5dp"
+					android:visibility="gone"
+					style="@style/content_side_padding" />
+		
+			</HorizontalScrollView>
+		
+			<LinearLayout
+			    android:id="@+id/fields_table"
+				android:layout_width="fill_parent"
+		    	android:layout_height="wrap_content"
+		    	android:orientation="vertical"
+		    	android:paddingBottom="25dp" />
+
+            <com.acentria.benslist.elements.FlyButton
+                android:id="@+id/edit_listing_button"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginBottom="25dp"
+                android:layout_gravity="center"
+                android:background="@drawable/shape_button"
+                android:text="edit_listing_button"
+                android:visibility="gone"
+                style="@style/orange_button" />
+			
+		</LinearLayout>
+
+	    <LinearLayout
+	        android:id="@+id/comments_view"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+
+            <include
+                android:id="@+id/comments_divider"
+                layout="@layout/fieldset" />
+			
+	        <LinearLayout
+		        android:id="@+id/comments"
+				android:layout_width="fill_parent"
+				android:layout_height="fill_parent"
+				android:orientation="vertical">		
+				
+			</LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/see_comments_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="right"
+                android:layout_gravity="right"
+                android:paddingRight="20dp"
+				android:paddingEnd="20dp">
+	            		
+                <TextView
+                    android:id="@+id/see_more_comments"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:paddingBottom="15dp"
+                    android:paddingTop="15dp"
+                    android:textSize="16dp"
+                    style="@style/static_link"
+                    android:text="See more"/>
+
+            </LinearLayout>
+			
+			<com.acentria.benslist.elements.FlyButton
+			    android:id="@+id/add_comment"
+		        style="@style/orange_button"
+		        android:layout_width="wrap_content"
+		        android:layout_height="40dp"
+		        android:layout_marginBottom="15dp" 
+                android:layout_marginTop="10dip"
+                android:layout_marginLeft="5dip"
+                android:layout_marginRight="5dip"
+		        android:layout_gravity="center"         
+		        android:background="@drawable/shape_button"
+		        android:text="add_comment" />
+			
+        </LinearLayout>
+
+	</LinearLayout>
+
+</ScrollView>

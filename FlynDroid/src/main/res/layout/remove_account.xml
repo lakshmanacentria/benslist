@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+	android:padding="15dp"
+    android:gravity="top|center">
+				
+	<com.acentria.benslist.elements.FlyEditText
+		android:id="@+id/password"
+		android:layout_width="fill_parent"
+		android:layout_height="44dp"
+		android:background="@drawable/edit_text"
+		android:hint="android_hint_password"
+		android:inputType="textPassword"
+		android:textColor="@color/field_edit_text_color"
+		android:textSize="16sp" />
+	
+</LinearLayout>

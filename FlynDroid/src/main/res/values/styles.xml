@@ -1,0 +1,344 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="main_bg">
+        <item name="android:background">#d4d4d4</item>
+    </style>
+
+    <style name="static_text">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">#575757</item>
+    </style>
+
+    <style name="static_link">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/main_link_color</item>
+    </style>
+
+    <style name="price">
+        <item name="android:textColor">@color/price_color</item>
+        <item name="android:textSize">23sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="date">
+        <item name="android:textColor">#909090</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="bold_caption">
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="black_title">
+        <item name="android:textColor">#1b1b1b</item>
+        <item name="android:textSize">21sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="featured_box_title">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="map_popup_title">
+        <item name="android:textColor">#1b1b1b</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="middle_name">
+        <item name="android:textColor">#515151</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="profile_header_bg">
+        <item name="android:background">#bababa</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:padding">15dip</item>
+    </style>
+
+    <style name="map_popup_price">
+        <item name="android:textColor">@color/price_color</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="about_us_bottom_text">
+        <item name="android:textColor">#8e8e8e</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="map_popup_info">
+        <item name="android:textColor">#6a6a6a</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="featured_box_price">
+        <item name="android:textColor">@color/home_featured_price_color</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="details_header_icon">
+        <item name="android:layout_gravity">right|end</item>
+        <item name="android:paddingTop">7dip</item>
+        <item name="android:paddingLeft">11dip</item>
+    </style>
+
+    <style name="grid_like">
+        <item name="android:layout_gravity">right|end</item>
+        <item name="android:paddingLeft">10dip</item>
+    </style>
+
+    <style name="category">
+        <item name="android:textColor">#1b1b1b</item>
+        <item name="android:textSize">@dimen/category_text_size</item>
+        <item name="android:ellipsize">middle</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="category_empty">
+        <item name="android:textColor">#717171</item>
+        <item name="android:textSize">@dimen/category_text_size</item>
+        <item name="android:ellipsize">middle</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="content_side_padding">
+        <item name="android:paddingLeft">15dip</item>
+        <item name="android:paddingRight">15dip</item>
+    </style>
+
+    <style name="content_padding" parent="@style/content_side_padding">
+        <item name="android:paddingTop">15dip</item>
+        <item name="android:paddingBottom">15dip</item>
+    </style>
+
+    <style name="orange_button">
+        <item name="android:paddingLeft">20dip</item>
+        <item name="android:paddingRight">20dip</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="or_divider">
+        <item name="android:paddingTop">15dip</item>
+        <item name="android:paddingBottom">10dip</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">#848484</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="swipe_menu_padding">
+        <item name="android:paddingLeft">2dip</item>
+        <item name="android:paddingRight">2dip</item>
+        <item name="android:paddingTop">5dip</item>
+        <item name="android:paddingBottom">0dip</item>
+    </style>
+
+    <style name="dialog_header_text" parent="@style/content_side_padding">
+        <item name="android:textColor">#1b1b1b</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:paddingTop">15dip</item>
+        <item name="android:paddingBottom">10dip</item>
+    </style>
+
+    <style name="purchase_title">
+        <item name="android:textColor">#666666</item>
+        <item name="android:textSize">19sp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="purchase_price">
+        <item name="android:textColor">#b66b00</item>
+        <item name="android:textSize">19sp</item>
+    </style>
+
+    <style name="dialog_list_text">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">#383838</item>
+    </style>
+
+    <style name="edit_plate">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:paddingTop">4dip</item>
+        <item name="android:paddingBottom">6dip</item>
+        <item name="android:background">#80000000</item>
+    </style>
+
+    <style name="field_caption">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">#444444</item>
+        <item name="android:paddingTop">15dip</item>
+        <item name="android:paddingBottom">5dip</item>
+    </style>
+
+    <style name="through_hint">
+        <item name="android:textSize">15sp</item>
+        <item name="android:paddingTop">10dip</item>
+        <item name="android:paddingBottom">10dip</item>
+        <item name="android:textColor">#707070</item>
+    </style>
+
+    <style name="through_warning">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">#ca2727</item>
+    </style>
+
+    <style name="manage_area">
+        <item name="android:background">@drawable/manage_area_bg</item>
+    </style>
+
+    <style name="manage_area_caption">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">#484848</item>
+        <item name="android:paddingTop">3dip</item>
+    </style>
+
+    <style name="manage_area_header">
+        <item name="android:paddingLeft">13dip</item>
+        <item name="android:paddingRight">5dip</item>
+        <item name="android:paddingTop">5dip</item>
+        <item name="android:paddingBottom">5dip</item>
+        <item name="android:background">@drawable/manage_area_header_bg</item>
+    </style>
+
+    <style name="manage_area_text">
+        <item name="android:paddingTop">11dip</item>
+        <item name="android:paddingRight">15dip</item>
+        <item name="android:paddingBottom">15dip</item>
+        <item name="android:paddingLeft">15dip</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#333333</item>
+        <item name="android:ellipsize">start</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:scrollHorizontally">true</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="field_error_message">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">#a12b2b</item>
+        <item name="android:paddingTop">5dip</item>
+    </style>
+
+    <style name="notice_message">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">#a12b2b</item>
+    </style>
+
+    <style name="error_text">
+        <item name="android:textColor">#a12b2b</item>
+    </style>
+
+    <style name="default_text">
+        <item name="android:textColor">#484848</item>
+    </style>
+
+    <style name="submit_form_caption">
+        <item name="android:textColor">#484848</item>
+        <item name="android:textSize">4dip</item>
+    </style>
+
+    <!-- statuses -->
+    <style name="status_active">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#006405</item>
+    </style>
+
+    <style name="status_approval" parent="@style/status_active">
+        <item name="android:textColor">#666666</item>
+    </style>
+
+    <style name="status_incomplete" parent="@style/status_active">
+        <item name="android:textColor">#2767b5</item>
+    </style>
+
+    <style name="status_pending" parent="@style/status_active">
+        <item name="android:textColor">#e88d22</item>
+    </style>
+
+    <style name="status_expired" parent="@style/status_active">
+        <item name="android:textColor">#fb0000</item>
+    </style>
+    <!-- statuses end -->
+
+    <style name="Theme.FlynaxMain" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+        <item name="actionBarStyle">@style/CustomActionBarStyle</item>
+        <item name="android:actionBarStyle">@style/CustomActionBarStyle</item>
+    </style>
+
+    <style name="CustomActionBarStyle" parent="@style/Widget.AppCompat.ActionBar">
+        <item name="titleTextStyle">@style/CustomTitleColorBar</item>
+        <item name="android:titleTextStyle">@style/CustomTitleColorBar</item>
+    </style>
+
+    <!-- Style for the color title bar -->
+    <style name="CustomTitleColorBar" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="CustomRatingBar">
+        <item name="android:progressDrawable">@drawable/rating_bar</item>
+        <item name="android:minHeight">42dip</item>
+        <item name="android:maxHeight">42dip</item>
+    </style>
+
+    <style name="comments_star">
+        <item name="android:layout_gravity">right|end</item>
+        <item name="android:paddingTop">5dip</item>
+    </style>
+
+    <style name="commentsRatingBar">
+        <item name="android:progressDrawable">@drawable/rating_bar_view</item>
+        <item name="android:layout_gravity">right|end</item>
+        <item name="android:paddingTop">5dip</item>
+        <item name="android:minHeight">20dip</item>
+        <item name="android:maxHeight">20dip</item>
+    </style>
+
+    <style name="PopupMenu" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:popupBackground">#f2f2f2</item>
+    </style>
+
+    <style name="MyActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid">
+        <item name="titleTextStyle">@style/MyTitleTextStyle</item>
+    </style>
+
+    <style name="MyTitleTextStyle" parent="@style/TextAppearance.AppCompat.Title">
+        <item name="android:textSize">16sp
+        </item> <!-- Default for portrait is 20sp and for landscape 14sp-->
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+</resources>

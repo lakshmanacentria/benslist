@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/map_type"
+        android:title="android_menu_map_type"
+        android:orderInCategory="1"
+        app:showAsAction="never" />
+
+     <item
+        android:id="@+id/distance_unit"
+        android:title="android_menu_distance_unit"
+        android:orderInCategory="2"
+         app:showAsAction="never" />
+
+     <item
+        android:id="@+id/listing_type"
+        android:title="android_menu_listing_type"
+        android:orderInCategory="3"
+         app:showAsAction="never" />
+     
+     <!-- item
+		android:id="@+id/search_action"
+        android:title="android_search_location"
+        android:icon="@drawable/ic_action_search"
+        android:showAsAction="ifRoom|collapseActionView"
+        android:actionViewClass="android.widget.SearchView" /-->
+     
+</menu>

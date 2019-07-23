@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<step>
+	<pictag  mystr="Picture 1" myint="33" />
+	<pictag  mystr="Picture 2" myint="44" />
+	<artag  mystr="My integer array" myfloat="1.234" /> 
+</step>
+

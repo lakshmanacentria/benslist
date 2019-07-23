@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:orientation="vertical"
+	android:paddingBottom="3dip">
+	
+	<TextView
+	    android:id="@+id/caption"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:text="Listings"
+		android:ellipsize="end"
+		android:textStyle="bold"
+		android:textColor="#000000"
+		android:textSize="14sp"
+		android:textAllCaps="true"
+		android:layout_marginTop="13dp"
+		android:layout_marginBottom="8dp" />
+	
+	<LinearLayout
+	    android:id="@+id/container"
+	    android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal" />
+    
+</LinearLayout>

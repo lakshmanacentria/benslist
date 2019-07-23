@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:gravity="center">
+    
+    <LinearLayout
+        android:id="@+id/mapContainer"
+        android:layout_width="match_parent"
+		android:layout_height="0dip"
+        android:layout_weight="1">
+    
+	    <fragment
+			android:id="@+id/map"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+            tools:context="com.acentria.benslist.SearchAroundActivity"
+			class="com.google.android.gms.maps.SupportMapFragment" />
+	    
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/listContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/transparent_dark_bar"
+            android:padding="10dip" >
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:layout_marginEnd="10dp"
+                android:paddingTop="7dp">
+
+                <TextView
+                    android:id="@+id/counter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:textSize="17sp" />
+
+            </LinearLayout>
+
+            <com.acentria.benslist.elements.FlyButton
+                android:id="@+id/list_button"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="android_show_list"
+                android:background="@drawable/shape_button"
+                style="@style/orange_button" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

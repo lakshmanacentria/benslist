@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content">
+	
+    <Spinner
+        android:id="@+id/dropdown"
+        android:layout_width="0dip"
+        android:layout_height="44dp"
+        android:layout_weight="1"
+        android:background="@drawable/spinner"
+        android:spinnerMode="dropdown" />
+    
+    <com.acentria.benslist.elements.FlyTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:textSize="16sp"
+        android:text="android_zip_within" />
+    
+    <com.acentria.benslist.elements.FlyEditText
+        android:id="@+id/zipcode"
+        android:layout_width="120dip"
+        android:layout_height="44dp"
+        android:background="@drawable/edit_text"
+        android:hint="android_zipcode"
+        android:inputType="text"
+        android:maxLength="8"
+        android:singleLine="true"
+        android:textColor="#2b2b2b"
+        android:textSize="16sp" />
+    
+</LinearLayout>

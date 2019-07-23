@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    
+	<com.acentria.benslist.preferences.ChangeSiteDialog
+		android:key="pref_reset_domain"
+		android:positiveButtonText="OK"
+		android:dialogMessage="Are you sure?"
+		android:negativeButtonText="Cancel" /> 
+
+	<com.acentria.benslist.preferences.ChangeSiteDialog
+		android:key="clear_cache"
+		android:dialogMessage="Are you sure?"
+		android:negativeButtonText="Cancel" />
+	
+	<ListPreference 
+		android:id="@+id/select_lang"
+		android:key="select_lang" />
+
+	<ListPreference
+		android:key="preload_method"
+		android:entries="@array/preload_method"
+		android:entryValues="@array/preload_method_values" />
+
+</PreferenceScreen>

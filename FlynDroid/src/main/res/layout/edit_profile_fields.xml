@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+    
+    <LinearLayout
+        android:id="@+id/edit_profile_fields"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical"
+	    android:paddingTop="15dip"
+	    android:paddingBottom="18dip"
+	    android:focusable="true"
+	    android:focusableInTouchMode="true">
+    
+	    <TextView
+			android:id="@+id/username"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="15dip"
+			style="@style/black_title" />
+
+        <LinearLayout
+            android:id="@+id/email_field_cont"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="15dip">
+
+            <EditText
+                android:id="@+id/email_field"
+                android:inputType="textEmailAddress"
+                android:layout_width="fill_parent"
+                android:layout_height="44dp"
+                android:singleLine="true"
+                android:textSize="16sp"
+                android:textColor="@color/field_edit_text_color"
+                android:background="@drawable/edit_text" />
+
+            <include layout="@layout/field_error_view" />
+
+        </LinearLayout>
+
+	    <!-- edit email -->
+       	<LinearLayout
+	        android:id="@+id/email_view_cont" 
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="vertical"
+	        android:visibility="gone"
+	        android:layout_marginBottom="15dip"
+	        style="@style/manage_area">
+	      	 
+       	    <LinearLayout
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				style="@style/manage_area_header">
+	    	
+		    	<com.acentria.benslist.elements.FlyTextView
+					android:layout_width="0dip"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:text="android_hint_email"
+					style="@style/manage_area_caption" />
+		    	
+		    	<ImageView
+		            android:id="@+id/edit_email"
+		            android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:clickable="true"
+			        android:focusable="true"
+			        android:background="@drawable/icon_edit_state" />
+				
+			</LinearLayout>
+			
+       	    <TextView
+				android:id="@+id/email_view"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="Some category"
+				style="@style/manage_area_text" />
+       	    
+		</LinearLayout>
+		<!-- edit email -->
+	    
+	    <Spinner
+	        android:id="@+id/account_type"
+			android:layout_width="fill_parent"
+			android:layout_height="44dp"
+			android:background="@drawable/spinner"
+			android:spinnerMode="dropdown" />
+	    
+	</LinearLayout>
+	
+    <LinearLayout
+	    android:id="@+id/edit_account_fields"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical"
+	    android:paddingBottom="15dip">
+	    
+		<ProgressBar
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="20dip"
+			android:layout_gravity="center_horizontal" />
+         
+	</LinearLayout>
+    
+</LinearLayout>
