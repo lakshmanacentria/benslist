@@ -66,7 +66,10 @@ import java.util.regex.Pattern;
 
 import cz.msebera.android.httpclient.Header;
 
+import static com.facebook.GraphRequest.TAG;
+
 public class Utils {
+	private static final String TAG="Utils";
 	public static SharedPreferences SPSettings = PreferenceManager.getDefaultSharedPreferences(Config.context);
 	
 	public static ImageLoader imageLoaderDisc = ImageLoader.getInstance();// image loader (cache on disc)
@@ -349,6 +352,7 @@ public class Utils {
 		
 		/* show current/requested view */
 		int viewId = Config.context.getResources().getIdentifier(className, "id", Config.context.getPackageName());
+		Log.e(TAG,"classename"+className+" title=> "+Title);
 		Config.context.getWindow().findViewById(viewId).setVisibility(View.VISIBLE);
 		
 		ActionBar actionBar = Config.context.getSupportActionBar();

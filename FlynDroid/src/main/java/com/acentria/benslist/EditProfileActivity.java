@@ -30,6 +30,7 @@ import android.widget.Toast;
 import com.acentria.benslist.adapters.ActionbarIconSpinnerAdapter;
 import com.acentria.benslist.adapters.SpinnerAdapter;
 import com.acentria.benslist.controllers.AccountArea;
+import com.acentria.benslist.controllers.CharityArea;
 import com.google.analytics.tracking.android.EasyTracker;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -382,7 +383,10 @@ public class EditProfileActivity extends AppCompatActivity {
                                             }
 
                                             TextView type_name = (TextView) AccountArea.profileTab.findViewById(R.id.type_name);
+                                            TextView type_namecharity = (TextView) CharityArea.profileTab.findViewById(R.id.type_name);
+
                                             type_name.setText(Config.cacheAccountTypes.get(Account.accountData.get("type")).get("name"));
+                                            type_namecharity.setText(Config.cacheAccountTypes.get(Account.accountData.get("type")).get("name"));
 
                                             /* show toast and finish activity */
                                             Toast.makeText(Config.context, Lang.get("profile_updated"), Toast.LENGTH_LONG).show();

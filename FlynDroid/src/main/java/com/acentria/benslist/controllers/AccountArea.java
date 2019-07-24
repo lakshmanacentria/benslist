@@ -1,5 +1,6 @@
 package com.acentria.benslist.controllers;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -78,6 +79,7 @@ import static com.acentria.benslist.AddListingActivity.MY_PERMISSIONS_REQUEST_RE
 
 public class AccountArea extends AbstractController {
 
+	private static final String TAG = "AccountArea=> ";
 	private static AccountArea instance;
 	private static final String Title = Lang.get("android_menu_login");
 	private static final ArrayList<HashMap<String, String>> TABS = new ArrayList<HashMap<String, String>>();
@@ -150,9 +152,11 @@ public class AccountArea extends AbstractController {
 
 			menu_logout.setVisible(true);
 			menu_remove_account.setVisible(true);
+			Log.e(TAG,"user profile");
 		}
 		else {
 			loginForm(login_form, Config.context);
+			Log.e(TAG,"userNot login");
 		}
 
 		/* start pager */
@@ -602,6 +606,7 @@ public class AccountArea extends AbstractController {
 				profile_layer.setVisibility(View.GONE);
 
 				GetPushNotification.regNotification(Account.accountData.get("id"), false);
+				Log.e(TAG,"logout"+Account.accountData.get("id"));
 
 				Account.logout();
 				Dialog.toast("logout_completed");
@@ -623,6 +628,8 @@ public class AccountArea extends AbstractController {
 		
 		Dialog.CustomDialog(Lang.get("logout"), Lang.get("confirm_logout"), null, listener);
 	}
+
+
 	
 	class FragmentAdapter extends FragmentPagerAdapter {
         public FragmentAdapter(FragmentManager fm) {
@@ -665,7 +672,8 @@ public class AccountArea extends AbstractController {
 	        super.onCreate(savedInstanceState);
 	    }
 
-	    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+	    @SuppressLint("LongLogTag")
+		@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 		@Override
 	    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 	    	View layout = null;
@@ -936,6 +944,7 @@ public class AccountArea extends AbstractController {
 					params.put("password_confirm", pass_text);
 
 					final String url = Utils.buildRequestUrl("deleteAccount", params, null);
+					Log.e(TAG,"delete account api url"+url);
 
 		    		/* do request */
 					AsyncHttpClient client = new AsyncHttpClient();
@@ -1011,4 +1020,8 @@ public class AccountArea extends AbstractController {
 			}
 		});
 	}
+
+
+
+
 }

@@ -254,6 +254,11 @@ public class SavedSearch extends AbstractController {
 				clearSSItem(Utils.getNodeByName(itemEl, "id"));
 				saveSSPreference(Config.context, 0, Utils.getNodeByName(itemEl, "id"), Utils.getNodeByName(itemEl, "matches"));
 			}
+
+			if(CharityArea.loginSS) {
+				clearSSItem(Utils.getNodeByName(itemEl, "id"));
+				saveSSPreference(Config.context, 0, Utils.getNodeByName(itemEl, "id"), Utils.getNodeByName(itemEl, "matches"));
+			}
 		}
 	}
 

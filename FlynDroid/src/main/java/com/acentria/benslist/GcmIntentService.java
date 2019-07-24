@@ -14,6 +14,7 @@ import android.content.Intent;
 import android.media.RingtoneManager;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 
 import com.acentria.benslist.controllers.MyMessages;
 import com.acentria.benslist.controllers.SavedSearch;
@@ -22,9 +23,12 @@ import com.google.android.gms.gcm.GoogleCloudMessaging;
 import java.util.List;
 import java.util.Random;
 
+import static com.facebook.GraphRequest.TAG;
+
 
 public class GcmIntentService extends IntentService
 {
+    private final String TAG="GcmIntentService=> ";
     public static final int NOTIFICATION_ID = 1;
     private NotificationManager notificationManager;
     private NotificationCompat.Builder builder;
@@ -63,7 +67,7 @@ public class GcmIntentService extends IntentService
             List<ActivityManager.RunningTaskInfo> taskInfo = am.getRunningTasks(1);
             ComponentName componentInfo = taskInfo.get(0).topActivity;
             String activityName = componentInfo.getShortClassName();
-
+            Log.e(TAG, "keys=> "+data.get("key"));
             if(data.getString("key").equals("message")) {
                 MyMessages.parseNewMessage(data);
                 if (activityName.equals(".MessagesActivity") && MyMessages.contactID.equals(MyMessages.lastMessage.get("from")) && Account.accountData.get("id").equals(MyMessages.lastMessage.get("to"))) {
@@ -78,6 +82,7 @@ public class GcmIntentService extends IntentService
                         MyMessages.updateContacts(false);
                     }
                 } else {
+                    Log.e(TAG, "Got to FlynDroid Activity keys=> "+data.get("key"));
                     intent = new Intent(this, FlynDroid.class);
                     intent.putExtra("key", data.getString("key"));
                     // updated counter messages and contact

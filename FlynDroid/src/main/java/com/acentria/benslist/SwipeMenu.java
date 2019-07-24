@@ -204,6 +204,8 @@ public class SwipeMenu extends SlidingActivity {
 				menuData.add(map);
 				Log.e(TAG,"AccountType: entry put in menuDatalist "+map);
 	        }
+
+
         }
 
         menuListView = (ListView) Config.context.findViewById(R.id.sm_menu_view);
