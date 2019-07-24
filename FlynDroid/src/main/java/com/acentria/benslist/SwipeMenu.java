@@ -4,6 +4,7 @@ package com.acentria.benslist;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.View;
@@ -22,7 +23,9 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 
 public class SwipeMenu extends SlidingActivity {
-	
+
+
+	private static final String TAG = "SwipeMenu=> ";
 	public static ArrayList<HashMap<String, String>> menuData;
 	public static ListView menuListView;
 	public static SwipeMenuAdapter adapter;
@@ -137,6 +140,7 @@ public class SwipeMenu extends SlidingActivity {
             map.put("count", menu[i][5]);
  
             menuData.add(map);
+			Log.e(TAG,"Menu mapfirst "+map);
             
             // increase counter
             if ( menu[i][1] != null ) {
@@ -168,6 +172,7 @@ public class SwipeMenu extends SlidingActivity {
 					map.put("key", entry.getKey());	
 					map.put("count", null);
 					menuData.add(map);
+					Log.e(TAG,"cacheListingTypes>0: submenuMap=> "+map);
 //				}
 	        }
 		}
@@ -182,6 +187,7 @@ public class SwipeMenu extends SlidingActivity {
         	divider.put("controller", null);
         	divider.put("count", null);
 			menuData.add(divider);
+			Log.e(TAG,"cacheListingTypes>AccountType: submenuMap=> "+divider);
 			
 			for (Entry<String, HashMap<String, String>> entry : Config.cacheAccountTypes.entrySet()) {
 				if ( !entry.getValue().get("page").equals("1") )
@@ -196,6 +202,7 @@ public class SwipeMenu extends SlidingActivity {
 				map.put("key", entry.getKey());	
 				map.put("count", null);
 				menuData.add(map);
+				Log.e(TAG,"AccountType: entry put in menuDatalist "+map);
 	        }
         }
 

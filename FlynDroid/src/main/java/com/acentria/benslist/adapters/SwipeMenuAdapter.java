@@ -3,6 +3,7 @@ package com.acentria.benslist.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +27,8 @@ import java.util.HashMap;
 
 public class SwipeMenuAdapter extends BaseAdapter implements OnItemClickListener {
 
-    private ArrayList<HashMap<String, String>> data;
+	private static final String TAG = "SwipeMenuAdapter=>";
+	private ArrayList<HashMap<String, String>> data;
     private LayoutInflater inflater = null;
     public int currentPosition = 0;
     public int previousPosition = 0;
@@ -106,11 +108,14 @@ public class SwipeMenuAdapter extends BaseAdapter implements OnItemClickListener
     		holder.menuItemCount.setVisibility(View.GONE);
     		holder.menuItemIcon.setVisibility(View.GONE);
     		view.setBackgroundResource(R.mipmap.blank);
+    		Log.e(TAG," dividerside=>"+item.get("name"));
+
         }
         else
         {
         	holder.menuItem.setPadding(Utils.dp2px(12), Utils.dp2px(15), Utils.dp2px(12), Utils.dp2px(15));
         	holder.menuItemName.setText(item.get("name"));
+			Log.e(TAG,"without divider side=>"+item.get("name"));
         	holder.menuItemName.setTextColor(Color.parseColor("#ffffff"));
     		
             String count = item.get("count");
@@ -154,6 +159,7 @@ public class SwipeMenuAdapter extends BaseAdapter implements OnItemClickListener
     	}
 		
 		String className = data.get(position).get("controller");
+		Log.e(TAG, "ClassName onItememName=> "+className+"\ntype=> "+data.get(position).get("type"));
 		if ( data.get(position).get("type").equals(SwipeMenu.CON) )	{
 			if ( className == Config.currentView 
 					&& !SwipeMenu.menuData.get(position).get("controller").equals("ListingType")
@@ -196,6 +202,7 @@ public class SwipeMenuAdapter extends BaseAdapter implements OnItemClickListener
 		}
 		else {
 			try {
+				Log.e(TAG, "goto Class=> "+className);
 				Class<?> activity = Class.forName("com.acentria.benslist."+className);
 				Intent intent = new Intent(Config.context, activity);				
 				Config.context.startActivity(intent);

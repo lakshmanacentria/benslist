@@ -42,6 +42,7 @@ import cz.msebera.android.httpclient.Header;
 
 public class CategoryActivity extends AppCompatActivity {
 
+	private static final String TAG = "CategoryActivity=> ";
 	private static String ListingType;
 	private static HashMap<String, String> categoryHash;
 	
@@ -69,6 +70,7 @@ public class CategoryActivity extends AppCompatActivity {
 		ListingType = intent.getStringExtra("type");
 		
 		setTitle(categoryHash.get("name"));
+		Log.e(TAG, "Title"+categoryHash.get("name"));
         setContentView(R.layout.activity_category);
         
         /* enable back action */
@@ -109,8 +111,10 @@ public class CategoryActivity extends AppCompatActivity {
         	scParams.put("type", ListingType);
         	scParams.put("parent", categoryHash.get("id"));
     		final String scUrl = Utils.buildRequestUrl("getCategories", scParams, null);
-    		
-    		/* do async request */
+			Log.e(TAG, "ApiUrl"+scUrl);
+
+
+			/* do async request */
         	AsyncHttpClient scClient = new AsyncHttpClient();
         	scClient.get(scUrl, new AsyncHttpResponseHandler() {
         	
@@ -119,6 +123,7 @@ public class CategoryActivity extends AppCompatActivity {
 					// called when response HTTP status is "200 OK"
 					try {
 						String response = String.valueOf(new String(server_response, "UTF-8"));
+						Log.e(TAG, "response=> "+response);
 						/* parse response */
 						XMLParser parser = new XMLParser();
 						Document doc = parser.getDomElement(response, scUrl);
@@ -190,7 +195,9 @@ public class CategoryActivity extends AppCompatActivity {
 			params.put("type", ListingType);
 			params.put("sort", sortingField);
 			final String url = Utils.buildRequestUrl("getListingsByCategory", params, null);
-			
+			Log.e(TAG, "api getlistingByCategory=> "+url);
+
+
 			/* do async request */
 	    	AsyncHttpClient client = new AsyncHttpClient();
 	    	client.get(url, new AsyncHttpResponseHandler() {
@@ -200,6 +207,7 @@ public class CategoryActivity extends AppCompatActivity {
 					// called when response HTTP status is "200 OK"
 					try {
 						String response = String.valueOf(new String(server_response, "UTF-8"));
+						Log.e(TAG, "response getlistingByCategory=> "+response);
 						/* parse response */
 						XMLParser parser = new XMLParser();
 						Document doc = parser.getDomElement(response, url);

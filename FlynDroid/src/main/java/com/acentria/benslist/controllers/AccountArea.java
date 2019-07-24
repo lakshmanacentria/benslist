@@ -650,8 +650,9 @@ public class AccountArea extends AbstractController {
     }
 	
 	public final static class ProfileFragment extends Fragment {
-	    
-	    private String tabKey = "";
+
+		private static final String TAG = "ProfileFragment TAG Adapter=> ";
+		private String tabKey = "";
 
 	    public static ProfileFragment newInstance(String key) {
 			ProfileFragment fragment = new ProfileFragment();
@@ -670,9 +671,11 @@ public class AccountArea extends AbstractController {
 	    	View layout = null;
 	        if ( tabKey.equals("profile") ) {
 	        	layout = createPrifileTab();
+	        	Log.e(TAG,"createProfilelayout"+tabKey);
 	        }
 	        else if ( tabKey.equals("password") ) {
 	        	layout = createPasswordTab();
+				Log.e(TAG,"passwordlayout"+tabKey);
 	        }
 
 	        return layout;
@@ -758,6 +761,7 @@ public class AccountArea extends AbstractController {
 
 			@Override
 			public void onClick(View arg0) {
+
 				Intent intent = new Intent(Config.context, EditProfileActivity.class);
 				Config.context.startActivity(intent);
 			}
