@@ -120,6 +120,7 @@ public class ListingType extends AbstractController {
 		params.put("type", listingType);
 		params.put("parent", "0");
 		final String url = Utils.buildRequestUrl("getCategories", params, null);
+
 		
 		/* do async request */
     	AsyncHttpClient client = new AsyncHttpClient();

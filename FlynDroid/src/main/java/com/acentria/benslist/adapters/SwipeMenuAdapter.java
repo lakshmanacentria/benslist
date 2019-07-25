@@ -116,8 +116,6 @@ public class SwipeMenuAdapter extends BaseAdapter implements OnItemClickListener
 //                holder.menuItemName.setText(item.get("name"));
 //                Log.e(TAG, "without divider side=>" + item.get("name"));
 //            }
-
-
             holder.menuItemName.setTextColor(Color.parseColor("#ffffff"));
 
             String count = item.get("count");
@@ -157,11 +155,11 @@ public class SwipeMenuAdapter extends BaseAdapter implements OnItemClickListener
 
         String className = data.get(position).get("controller");
         Log.e(TAG, "ClassName onItememName=> " + className + "\ntype=> " + data.get(position).get("type"));
-        if (className.equalsIgnoreCase("AccountArea")) {
-            className = "";
-            className = "CharityArea";
-            Log.e(TAG, "ClassName onItememName=> " + className + "\ntype=> " + data.get(position).get("type"));
-        }
+//        if (className.equalsIgnoreCase("AccountArea")) {
+//            className = "";
+//            className = "CharityArea";
+//            Log.e(TAG, "ClassName onItememName=> " + className + "\ntype=> " + data.get(position).get("type"));
+//        }
 
         if (data.get(position).get("type").equals(SwipeMenu.CON)) {
             if (className == Config.currentView
@@ -173,10 +171,10 @@ public class SwipeMenuAdapter extends BaseAdapter implements OnItemClickListener
                     /* save current view */
                     Config.prevView = Config.currentView;
                     Config.currentView = className;
-                    if (className.equalsIgnoreCase("AccountArea")) {
-                        Config.currentView = "CharityArea";
-                        Log.e(TAG, "else change account type to charity");
-                    }
+//                    if (className.equalsIgnoreCase("AccountArea")) {
+//                        Config.currentView = "CharityArea";
+//                        Log.e(TAG, "else change account type to charity");
+//                    }
 
                     /* set current menu position as current */
                     previousPosition = currentPosition;

@@ -205,21 +205,17 @@ public class FlynDroid extends SlidingActivity {
                 return true;
 
             case R.id.menu_logout:
-                try {
+
 
                     /*diffrent conditon approch*/
-//                    AccountArea.logout();
-                    CharityArea.logout();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
+                    AccountArea.logout();
+//                    CharityArea.logout();
 
                 return true;
 
             case R.id.menu_remove_account:
-//                AccountArea.removeAccount();
-                CharityArea.removeAccount();
+                AccountArea.removeAccount();
+//                CharityArea.removeAccount();
 
                 return true;
 
@@ -309,7 +305,7 @@ public class FlynDroid extends SlidingActivity {
                         HashMap<String, String> plan = (HashMap<String, String>) data.getSerializableExtra("success");
                         MyPackages.updatePackage(plan, MyPackages.availablePlans);
                     } else {
-                        Log.e("FD", "Add Listing Activity - no success data received, listview update failed");
+                        Log.e("FlynDroid", "Add Listing Activity - no success data received, listview update failed");
                         Dialog.simpleWarning(Lang.get("dialog_unable_approve_transaction"));
                     }
                 } else if (resultCode == Config.RESULT_TRANSACTION_FAILED) {
