@@ -19,7 +19,6 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.acentria.benslist.controllers.CharityArea;
 import com.facebook.FacebookSdk;
 import com.acentria.benslist.adapters.ActionbarIconSpinnerAdapter;
 import com.acentria.benslist.controllers.AccountArea;
@@ -73,8 +72,6 @@ public class AddListingActivity extends AppCompatActivity {
         if (!Account.loggedIn) {
             AccountArea.loginController = "AddListing";
             AccountArea.loginForm(login_form, instance);
-            CharityArea.loginController = "AddListing";
-            CharityArea.loginForm(login_form, instance);
             login_form.setVisibility(View.VISIBLE);
             category_options.setVisibility(View.GONE);
 
@@ -131,14 +128,7 @@ public class AddListingActivity extends AppCompatActivity {
             AccountArea.profile_layer.setVisibility(View.VISIBLE);
         }
 
-        if (Config.activeInstances.contains("CharityArea")) {
-            Config.context.setTitle(Lang.get("my_profile"));
-            CharityArea.menu_logout.setVisible(true);
-            CharityArea.menu_remove_account.setVisible(true);
-            Account.populateProfileTab();
-            CharityArea.login_form.setVisibility(View.GONE);
-            CharityArea.profile_layer.setVisibility(View.VISIBLE);
-        }
+
 
 
         GetPushNotification.regNotification(Account.accountData.get("id"), true);
@@ -196,7 +186,7 @@ public class AddListingActivity extends AppCompatActivity {
 
             case AccountArea.FB_SIGN_IN:
                 AccountArea.callbackManager.onActivityResult(requestCode, resultCode, data);
-                CharityArea.callbackManager.onActivityResult(requestCode, resultCode, data);
+
 
                 break;
             case Config.RESULT_SELECT_PLAN:

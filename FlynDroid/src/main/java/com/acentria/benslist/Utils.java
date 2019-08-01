@@ -1,6 +1,9 @@
 package com.acentria.benslist;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
@@ -146,6 +149,20 @@ public class Utils {
 		
 		L.disableLogging();
 	}
+
+	public static boolean isOnline(Context context) {
+		ConnectivityManager connManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo info = connManager.getActiveNetworkInfo();
+		if (info != null)
+			if (info.isConnected()) {
+				return true;
+			} else {
+				return false;
+			}
+		else
+			return false;
+	}
+
 	
 	/**
 	 * check string for domain entry
@@ -503,6 +520,8 @@ public class Utils {
 		InputMethodManager imm = (InputMethodManager)context.getSystemService(Context.INPUT_METHOD_SERVICE);
 		imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
 	}
+
+
 	
 	/**
 	 * remove item from set string
@@ -685,6 +704,45 @@ public class Utils {
 			stack += stackTrace[i]+"\r\n";
 		}
 		sendToLab("Android Debug: "+subject+" ("+ getSPConfig("domain", "") +")", stack);
+	}
+
+	public static final Pattern EMAIL_ADDRESS_PATTERN = Pattern.compile(
+
+			"[a-zA-Z0-9+._%-+]{1,256}" +
+					"@." +
+					"[a-zA-Z0-9][a-zA-Z0-9-]{0,64}" +
+					"(" +
+					"." +
+					"[a-zA-Z0-9][a-zA-Z0-9-]{0,25}" +
+					")+"
+	);
+
+
+
+	public static void isAlertBox(final Activity mcontext, String title, String msg) {
+		AlertDialog.Builder builder1 = new AlertDialog.Builder(mcontext);
+		builder1.setTitle(title);
+		builder1.setMessage(msg);
+		builder1.setCancelable(false);
+
+		builder1.setPositiveButton(
+				"OK",
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int id) {
+						dialog.cancel();
+						mcontext.onBackPressed();
+					}
+				});
+
+
+		AlertDialog alert11 = builder1.create();
+		alert11.show();
+	}
+
+	public static boolean checkEmail(String email) {
+
+
+		return EMAIL_ADDRESS_PATTERN.matcher(email).matches();
 	}
 	
 	public static void sendEmail(String subject, String body, String from, String to) {

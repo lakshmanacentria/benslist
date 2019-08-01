@@ -1,7 +1,6 @@
 package com.acentria.benslist;
 
 import android.app.Activity;
-import android.opengl.Visibility;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -9,7 +8,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.acentria.benslist.controllers.CharityArea;
 import com.facebook.FacebookSdk;
 import com.acentria.benslist.controllers.AccountArea;
 import com.google.analytics.tracking.android.EasyTracker;
@@ -34,10 +32,10 @@ public class LoginActivity extends AppCompatActivity {
 
 
         AccountArea.loginController = "login";
-        CharityArea.loginController = "login";
+
         LinearLayout layout = (LinearLayout) findViewById(R.id.login_form);
         AccountArea.loginForm(layout, this);
-        CharityArea.loginForm(layout, this);
+
 
 
     }
@@ -63,18 +61,6 @@ public class LoginActivity extends AppCompatActivity {
             AccountArea.profile_layer.setVisibility(View.VISIBLE);
         }
 
-        /*CharityArea*/
-
-        if (Config.activeInstances.contains("CharityArea")) {
-            Config.context.setTitle(Lang.get("charity"));
-            CharityArea.menu_logout.setVisible(false);
-            CharityArea.menu_remove_account.setVisible(false);
-            if (CharityArea.profileTab != null) {
-                Account.populateProfileTab();
-            }
-            CharityArea.login_form.setVisibility(View.GONE);
-            CharityArea.profile_layer.setVisibility(View.VISIBLE);
-        }
 
 
         GetPushNotification.regNotification(Account.accountData.get("id"), true);

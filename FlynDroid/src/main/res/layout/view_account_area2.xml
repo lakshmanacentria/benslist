@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/AccountArea2"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+	<LinearLayout
+		android:id="@+id/ll_charityMainView"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical"
+		android:visibility="gone"
+		>
+
+		<LinearLayout
+
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:weightSum="10"
+			>
+			<LinearLayout
+				android:layout_width="0dp"
+				android:layout_height="match_parent"
+				android:orientation="vertical"
+				android:layout_weight="5"
+
+				>
+				<TextView
+					android:id="@+id/tv_CharityCreate"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:textColor="#fff"
+					android:layout_weight="5"
+					android:gravity="center"
+					android:padding="15dp"
+					android:background="#7C7A7A"
+					android:layout_gravity="center"
+					android:text="Charity Create"
+					android:textSize="14dp"
+					android:textAllCaps="true"
+
+					/>
+				<View
+					android:id="@+id/dividerDonate"
+					android:layout_width="match_parent"
+					android:layout_height="3dp"
+					android:background="@color/button_state_color"
+					/>
+			</LinearLayout>
+			<LinearLayout
+				android:layout_width="1dp"
+				android:layout_height="match_parent"
+				android:orientation="vertical"
+
+				android:background="#fff"
+				android:layout_marginBottom="2dp"
+				android:layout_marginTop="2dp"
+				/>
+			<LinearLayout
+				android:layout_width="0dp"
+				android:layout_height="match_parent"
+				android:orientation="vertical"
+				android:layout_weight="5"
+
+				>
+				<TextView
+					android:id="@+id/tv_DonateCharity"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:textColor="#fff"
+					android:layout_weight="5"
+					android:padding="15dp"
+					android:background="#7C7A7A"
+					android:gravity="center"
+					android:layout_gravity="center"
+					android:text="Donate Charity"
+					android:textSize="14dp"
+					android:textAllCaps="true"
+					/>
+				<View
+					android:id="@+id/dividerCharity"
+					android:layout_width="match_parent"
+					android:layout_height="3dp"
+
+					android:background="#7C7A7A"
+					/>
+			</LinearLayout>
+		</LinearLayout>
+		<include layout="@layout/fragment_create_charity_layout" />
+		<include layout="@layout/donate_charity_tab" />
+
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:id="@+id/ll_foodMainView"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical"
+		android:visibility="gone"
+		>
+
+		<LinearLayout
+
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:weightSum="10"
+			>
+			<LinearLayout
+				android:layout_width="0dp"
+				android:layout_height="match_parent"
+				android:orientation="vertical"
+				android:layout_weight="5"
+
+				>
+				<TextView
+					android:id="@+id/tv_foodCreate"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:textColor="#fff"
+					android:layout_weight="5"
+					android:gravity="center"
+					android:padding="15dp"
+					android:background="#7C7A7A"
+					android:layout_gravity="center"
+					android:text="food Create"
+					android:textSize="14dp"
+					android:textAllCaps="true"
+					/>
+				<View
+					android:id="@+id/dividerFoodCreat"
+					android:layout_width="match_parent"
+					android:layout_height="3dp"
+					android:background="@color/button_state_color"
+					/>
+			</LinearLayout>
+			<LinearLayout
+				android:layout_width="1dp"
+				android:layout_height="match_parent"
+				android:orientation="vertical"
+				android:background="#fff"
+				android:layout_marginBottom="2dp"
+				android:layout_marginTop="2dp"
+				/>
+			<LinearLayout
+				android:layout_width="0dp"
+				android:layout_height="match_parent"
+				android:orientation="vertical"
+				android:layout_weight="5"
+
+				>
+				<TextView
+					android:id="@+id/tv_DonateFood"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:textColor="#fff"
+					android:layout_weight="5"
+					android:padding="15dp"
+					android:background="#7C7A7A"
+					android:gravity="center"
+					android:layout_gravity="center"
+					android:text="Donate Charity"
+					android:textSize="14dp"
+					android:textAllCaps="true"
+					/>
+				<View
+					android:id="@+id/dividerFoodDonate"
+					android:layout_width="match_parent"
+					android:layout_height="3dp"
+					android:background="#7C7A7A"
+					/>
+			</LinearLayout>
+		</LinearLayout>
+		<include layout="@layout/activity_food_layout" />
+		<include layout="@layout/donate_charity_tab" />
+
+
+	</LinearLayout>
+
+
+
+		        
+	<LinearLayout
+		android:id="@+id/profile_layer"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:orientation="vertical"
+	    android:gravity="top"
+	    android:visibility="gone">
+
+       <!-- <com.viewpagerindicator.TabPageIndicator
+	        android:id="@+id/indicator"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+			android:visibility="gone"
+	        android:background="@drawable/tab_bar" />
+
+	    <android.support.v4.view.ViewPager
+	        android:id="@+id/pagerProfile"
+	        android:layout_width="fill_parent"
+	        android:layout_height="0dp"
+	        android:layout_weight="1"
+	        style="@style/main_bg" />-->
+
+	</LinearLayout>
+
+
+</LinearLayout>

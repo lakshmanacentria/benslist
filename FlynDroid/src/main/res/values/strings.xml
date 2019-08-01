@@ -69,4 +69,25 @@
     <bool name="ga_reportUncaughtExceptions">true</bool>
     <integer name="ga_dispatchPeriod">60</integer>
     <string name="title_activity_tours_on_map">ToursOnMapActivity</string>
+
+    <!--charity string implements-->
+    <string name="network_connection_error">Make sure your device connect to internet</string>
+    <string name="title_error">The "Name of title" field is required.</string>
+    <string name="nameof_org_error">The "Name of organization" field is required.</string>
+    <string name="description_error">The "Description" field is required.</string>
+    <string name="product_filed_error">The "Product" field is required.</string>
+    <string name="qauntity_fileld_error">The "Quantity" field is required.</string>
+    <string name="ammout_filed_error">The "Ammount" field is required.</string>
+    <string name="email_empty">The "Email" field is required.</string>
+    <string name="valid_email_error">please fill valid email.</string>
+    <string name="teli_empty">please fill tel. fields</string>
+    <string name="tel_minilength_error">Tel.no. should be minimum 7 characters</string>
+    <string name="bank_field_error">The "bank name" field is required.</string>
+    <string name="account_fields_error">The "account name" field is required.</string>
+    <string name="ifsc_filesds_error">The "IFSC code" field is required.</string>
+    <string name="additonal_info_error">The "Additional Info" field is required.</string>
+    <string name="paypal_fileds_error">The "Pypal id" field is required.</string>
+    <string name="add_desc_fields_error">The "Address description" field is required.</string>
+    <string name="server_error">Something went wrong..</string>
+
 </resources>

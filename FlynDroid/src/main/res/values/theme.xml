@@ -28,4 +28,6 @@
 		<item name="actionBarStyle">@style/MyActionBar</item>
 
 	</style>
+
+
 </resources>

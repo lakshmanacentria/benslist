@@ -56,7 +56,20 @@ dependencies {
     compile 'com.google.android.gms:play-services-location:11.2.0'
     compile 'com.facebook.android:facebook-android-sdk:4.5.0'
     compile 'com.loopj.android:android-async-http:1.4.9'
+
+    /*Imge networking liabarary*/
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    /*cricleimagview*/
+    compile 'de.hdodenhof:circleimageview:3.0.0'
+    //    Api caling Laibray
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.squareup.okhttp3:okhttp:3.4.1'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+    /*Crop image*/
+    compile 'com.theartofdev.edmodo:android-image-cropper:2.2.+'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+
     compile 'com.google.maps.android:android-maps-utils:0.4.3'
     compile 'com.android.support:multidex:1.0.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'

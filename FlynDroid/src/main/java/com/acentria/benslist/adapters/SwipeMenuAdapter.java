@@ -20,6 +20,8 @@ import com.acentria.benslist.Config;
 import com.acentria.benslist.R;
 import com.acentria.benslist.SwipeMenu;
 import com.acentria.benslist.Utils;
+import com.acentria.benslist.controllers.CharityActivity;
+import com.acentria.benslist.controllers.FoodActivity;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
@@ -149,69 +151,103 @@ public class SwipeMenuAdapter extends BaseAdapter implements OnItemClickListener
 
     @Override
     public void onItemClick(AdapterView<?> listView, View itemView, int position, long longItemId) {
-        if (position > SwipeMenu.loginIndex + 1 && !Account.loggedIn) {
-            position += SwipeMenu.accountItems;
-        }
+        /*Implement charity and food crate and donate */
+        if (data.get(position).get("name").equalsIgnoreCase("Food Create")) {
+            if (Utils.getSPConfig("accountUsername", "") != "" && Utils.getSPConfig("accountUsername", "") != null) {
+                Intent intent = new Intent(Config.context, FoodActivity.class);
+                Config.context.startActivity(intent);
 
-        String className = data.get(position).get("controller");
-        Log.e(TAG, "ClassName onItememName=> " + className + "\ntype=> " + data.get(position).get("type"));
-//        if (className.equalsIgnoreCase("AccountArea")) {
-//            className = "";
-//            className = "CharityArea";
-//            Log.e(TAG, "ClassName onItememName=> " + className + "\ntype=> " + data.get(position).get("type"));
-//        }
 
-        if (data.get(position).get("type").equals(SwipeMenu.CON)) {
-            if (className == Config.currentView
-                    && !SwipeMenu.menuData.get(position).get("controller").equals("ListingType")
-                    && !SwipeMenu.menuData.get(position).get("controller").equals("AccountType")) {
-                SwipeMenu.menu.showContent();
+            } else {
+                //alert
+                Log.e(TAG, data.get(position).get("name") + " please login user");
+            }
+
+        } else if (data.get(position).get("name").equalsIgnoreCase("Charity Create")) {
+            if (Utils.getSPConfig("accountUsername", "") != "" && Utils.getSPConfig("accountUsername", "") != null) {
+                Intent intent = new Intent(Config.context, CharityActivity.class);
+                Config.context.startActivity(intent);
+
+            } else {
+                //alert
+                Log.e(TAG, data.get(position).get("name") + " please login user");
+            }
+
+        } else {
+
+            if (position > SwipeMenu.loginIndex + 1 && !Account.loggedIn) {
+                position += SwipeMenu.accountItems;
+            }
+
+            String className = data.get(position).get("controller");
+//            if (data.get(position).get("name").equalsIgnoreCase("Charity Create")) {
+//                Log.e("Charity Create", "llllllllllllllllllllllllllllllllllll");
+//                Config.loginStatus = "charity";
+//
+//                // Utils.setSPConfig("Charity","Charity");
+//
+//            } else if (data.get(position).get("name").equalsIgnoreCase("Food Create")) {
+//                Log.e("Food Create", "llllllllllllllllllllllllllllllllllll");
+//                //  Utils.setSPConfig("Food","Food");
+//                Config.loginStatus = "food";
+//
+//            } else {
+//                Config.loginStatus = "login";
+//            }
+            Config.loginStatus="login";
+
+
+            Log.e(TAG, "ClassName onItememName=> " + className + "\ntype=> " + data.get(position).get("type"));
+            if (data.get(position).get("type").equals(SwipeMenu.CON)) {
+                if (className == Config.currentView
+                        && !SwipeMenu.menuData.get(position).get("controller").equals("ListingType")
+                        && !SwipeMenu.menuData.get(position).get("controller").equals("AccountType")) {
+                    SwipeMenu.menu.showContent();
+                } else {
+                    try {
+                        /* save current view */
+                        Config.prevView = Config.currentView;
+                        Config.currentView = className;
+
+
+                        /* set current menu position as current */
+                        previousPosition = currentPosition;
+                        currentPosition = position;
+
+                        notifyDataSetChanged();
+
+
+                        /* invoke getInstance method of the requested class */
+                        Class.forName("com.acentria.benslist.controllers." + className).getMethod("getInstance").invoke(className);
+                        Log.e(TAG, "else block =>com.acentria.benslist.controllers. " + className);
+                    } catch (ClassNotFoundException exception) {
+                        Context context = Config.context.getApplicationContext();
+                        CharSequence text = "No related class found for: " + data.get(position).get("name");
+                        Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
+                    } catch (NoSuchMethodException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    } catch (IllegalArgumentException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    } catch (IllegalAccessException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    } catch (InvocationTargetException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                }
             } else {
                 try {
-                    /* save current view */
-                    Config.prevView = Config.currentView;
-                    Config.currentView = className;
-//                    if (className.equalsIgnoreCase("AccountArea")) {
-//                        Config.currentView = "CharityArea";
-//                        Log.e(TAG, "else change account type to charity");
-//                    }
-
-                    /* set current menu position as current */
-                    previousPosition = currentPosition;
-                    currentPosition = position;
-
-                    notifyDataSetChanged();
-
-
-                    /* invoke getInstance method of the requested class */
-                    Class.forName("com.acentria.benslist.controllers." + className).getMethod("getInstance").invoke(className);
-                } catch (ClassNotFoundException exception) {
-                    Context context = Config.context.getApplicationContext();
-                    CharSequence text = "No related class found for: " + data.get(position).get("name");
-                    Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
-                } catch (NoSuchMethodException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                } catch (IllegalArgumentException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                } catch (IllegalAccessException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                } catch (InvocationTargetException e) {
+                    Log.e(TAG, "goto Class=> " + className);
+                    Class<?> activity = Class.forName("com.acentria.benslist." + className);
+                    Intent intent = new Intent(Config.context, activity);
+                    Config.context.startActivity(intent);
+                } catch (ClassNotFoundException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
-            }
-        } else {
-            try {
-                Log.e(TAG, "goto Class=> " + className);
-                Class<?> activity = Class.forName("com.acentria.benslist." + className);
-                Intent intent = new Intent(Config.context, activity);
-                Config.context.startActivity(intent);
-            } catch (ClassNotFoundException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
             }
         }
     }

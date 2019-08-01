@@ -16,7 +16,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.acentria.benslist.controllers.AccountArea;
-import com.acentria.benslist.controllers.CharityArea;
 import com.acentria.benslist.controllers.Home;
 import com.acentria.benslist.controllers.MyMessages;
 import com.acentria.benslist.controllers.MyPackages;

@@ -78,8 +78,9 @@ public final class Config {
 
     // list of countries supported by PayPal REST lib
     public static List<String> pp_rest_supported_countries;
+    public static String loginStatus="login";
 
-	public static void initCache(final boolean login) {
+    public static void initCache(final boolean login) {
 		clearCacheData();
 
         pp_rest_supported_countries = Utils.string2list(new String[] {"us", "uk"});
