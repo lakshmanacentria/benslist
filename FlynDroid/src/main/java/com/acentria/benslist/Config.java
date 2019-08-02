@@ -1,6 +1,7 @@
 package com.acentria.benslist;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -601,5 +602,16 @@ public final class Config {
 				break;
 			}
 		}
+	}
+
+
+	//global dialog ...
+	public static void  alertDailog(Context context,String msg)
+	{
+		new AlertDialog.Builder(context)
+				.setTitle("")
+				.setMessage(msg)
+				.setPositiveButton(android.R.string.ok, null)
+				.show();
 	}
 }

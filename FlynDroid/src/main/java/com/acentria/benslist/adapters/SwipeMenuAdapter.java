@@ -152,15 +152,26 @@ public class SwipeMenuAdapter extends BaseAdapter implements OnItemClickListener
     @Override
     public void onItemClick(AdapterView<?> listView, View itemView, int position, long longItemId) {
         /*Implement charity and food crate and donate */
+
+        if (position > SwipeMenu.loginIndex + 1 && !Account.loggedIn) {
+            position += SwipeMenu.accountItems;
+        }
+
         if (data.get(position).get("name").equalsIgnoreCase("Food Create")) {
             if (Utils.getSPConfig("accountUsername", "") != "" && Utils.getSPConfig("accountUsername", "") != null) {
                 Intent intent = new Intent(Config.context, FoodActivity.class);
                 Config.context.startActivity(intent);
 
-
             } else {
                 //alert
                 Log.e(TAG, data.get(position).get("name") + " please login user");
+                //alert
+
+                // Toast.makeText(Config.context, "Food Create", Toast.LENGTH_SHORT).show();
+//                Utils.isAlertBox(Config.context,"Ben's List","Please use this option after login.");
+                Config.alertDailog(Config.context,"Please use this option after login.");
+                /* hide menu */
+                Utils.showContent();
             }
 
         } else if (data.get(position).get("name").equalsIgnoreCase("Charity Create")) {
@@ -171,30 +182,32 @@ public class SwipeMenuAdapter extends BaseAdapter implements OnItemClickListener
             } else {
                 //alert
                 Log.e(TAG, data.get(position).get("name") + " please login user");
+                // Toast.makeText(Config.context, "Food Create", Toast.LENGTH_SHORT).show();
+                Config.alertDailog(Config.context,"Please use this option after login.");
+//                Utils.isAlertBox(Config.context,"Ben's List","Please use this option after login.");
+                /* hide menu */
+                Utils.showContent();
             }
 
         } else {
 
-            if (position > SwipeMenu.loginIndex + 1 && !Account.loggedIn) {
-                position += SwipeMenu.accountItems;
+            String className = data.get(position).get("controller");
+            Log.e(TAG, "ClassName onItememName=> " + className + "\ntype=> " + data.get(position).get("type"));
+            if (data.get(position).get("name").equalsIgnoreCase("Charity Create")) {
+                Log.e("Charity Create", "llllllllllllllllllllllllllllllllllll");
+                Config.loginStatus = "charity";
+
+                // Utils.setSPConfig("Charity","Charity");
+
+            } else if (data.get(position).get("name").equalsIgnoreCase("Food Create")) {
+                Log.e("Food Create", "llllllllllllllllllllllllllllllllllll");
+                //  Utils.setSPConfig("Food","Food");
+                Config.loginStatus = "food";
+
+            } else {
+                Config.loginStatus = "login";
             }
 
-            String className = data.get(position).get("controller");
-//            if (data.get(position).get("name").equalsIgnoreCase("Charity Create")) {
-//                Log.e("Charity Create", "llllllllllllllllllllllllllllllllllll");
-//                Config.loginStatus = "charity";
-//
-//                // Utils.setSPConfig("Charity","Charity");
-//
-//            } else if (data.get(position).get("name").equalsIgnoreCase("Food Create")) {
-//                Log.e("Food Create", "llllllllllllllllllllllllllllllllllll");
-//                //  Utils.setSPConfig("Food","Food");
-//                Config.loginStatus = "food";
-//
-//            } else {
-//                Config.loginStatus = "login";
-//            }
-            Config.loginStatus="login";
 
 
             Log.e(TAG, "ClassName onItememName=> " + className + "\ntype=> " + data.get(position).get("type"));
@@ -209,13 +222,10 @@ public class SwipeMenuAdapter extends BaseAdapter implements OnItemClickListener
                         Config.prevView = Config.currentView;
                         Config.currentView = className;
 
-
                         /* set current menu position as current */
                         previousPosition = currentPosition;
                         currentPosition = position;
-
                         notifyDataSetChanged();
-
 
                         /* invoke getInstance method of the requested class */
                         Class.forName("com.acentria.benslist.controllers." + className).getMethod("getInstance").invoke(className);

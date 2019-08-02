@@ -160,4 +160,70 @@ public class DonateCharityResponse {
     public void setTel(String tel) {
         this.tel = tel;
     }
+
+
+    public String getRefNumber() {
+        return refNumber;
+    }
+
+    public void setRefNumber(String refNumber) {
+        this.refNumber = refNumber;
+    }
+
+
+    public String getRemainingAmount() {
+        return remainingAmount;
+    }
+
+    public void setRemainingAmount(String remainingAmount) {
+        this.remainingAmount = remainingAmount;
+    }
+
+    public String getProduct() {
+        return product;
+    }
+
+    public void setProduct(String product) {
+        this.product = product;
+    }
+
+    public String getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getQuantityRemain() {
+        return quantityRemain;
+    }
+
+    public void setQuantityRemain(String quantityRemain) {
+        this.quantityRemain = quantityRemain;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
 }

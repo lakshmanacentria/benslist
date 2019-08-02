@@ -89,5 +89,6 @@
     <string name="paypal_fileds_error">The "Pypal id" field is required.</string>
     <string name="add_desc_fields_error">The "Address description" field is required.</string>
     <string name="server_error">Something went wrong..</string>
+    <string name="remaining_goods">Remaining Goods</string>
 
 </resources>

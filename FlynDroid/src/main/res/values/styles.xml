@@ -332,6 +332,7 @@
         </item> <!-- Default for portrait is 20sp and for landscape 14sp-->
     </style>
 
+
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

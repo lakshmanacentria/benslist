@@ -7,6 +7,8 @@ import android.support.annotation.Nullable;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -26,7 +28,8 @@ public class CharityActivity extends AppCompatActivity {
     private static final String TAG = "CharityActivity=>";
     private LinearLayout ll_container;
     private TabLayout tabLayout;
-    private Toolbar toolbar;
+
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,7 +38,6 @@ public class CharityActivity extends AppCompatActivity {
         setContentView(R.layout.activity_charity_layout);
         ll_container = (LinearLayout) findViewById(R.id.ll_container);
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
-        toolbar = findViewById(R.id.my_toolbar);
 
         /* enable back action */
         ActionBar actionbar = getSupportActionBar();
@@ -44,6 +46,7 @@ public class CharityActivity extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab().setText("Create Charity"));
         tabLayout.addTab(tabLayout.newTab().setText("Donate charity"));
         openfragment(new CreatCharityFrag());
+
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -71,22 +74,20 @@ public class CharityActivity extends AppCompatActivity {
         });
     }
 
+
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-
-       /* Intent intent = new Intent(this , Home.class);
-       startActivity(intent);
-        finish();*/
-//        finish();
+//        super.onBackPressed();
         Utils.showContent();
-        Log.e(TAG,"onBackPressed");
+        finish();
+        Log.e(TAG, "onBackPressed");
     }
+
 
     private void openfragment(Fragment fragment) {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.ll_container, fragment)
-                .addToBackStack(null).commit();
+                /* .addToBackStack(null)*/.commit();
     }
 
 
@@ -103,6 +104,7 @@ public class CharityActivity extends AppCompatActivity {
     }
 
     private void onBackPressMethod() {
-        onBackPressed();
+        Utils.showContent();
+        finish();
     }
 }

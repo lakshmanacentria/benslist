@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_weight="2.9"
         android:orientation="vertical">
 
@@ -27,12 +27,12 @@
 
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/iv_profile"
                     android:layout_width="125dp"
                     android:layout_height="125dp"
                     android:layout_gravity="center"
+                    android:id="@+id/iv_profile"
                     android:src="@mipmap/seller_no_photo"
-                    app:civ_border_color="@color/com_facebook_button_background_color_pressed"
+                    app:civ_border_color="@android:color/black"
                     app:civ_border_width="3dp" />
 
                 <TextView
@@ -120,19 +120,19 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Enter Product"
+                            android:singleLine="true"
                             android:imeOptions="actionNext"
-                            android:padding="10dp"
-                            android:singleLine="true" />
+                            android:padding="10dp" />
 
                         <EditText
                             android:id="@+id/et_qauntity"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Enter Quantity"
-                            android:imeOptions="actionNext"
                             android:inputType="numberDecimal"
-                            android:padding="10dp"
-                            android:singleLine="true" />
+                            android:singleLine="true"
+                            android:imeOptions="actionNext"
+                            android:padding="10dp" />
 
                         <Button
                             android:id="@+id/btn_addmore"
@@ -239,13 +239,11 @@
                         android:hint="Address description"
                         android:maxLines="2"
                         android:padding="2dp"
-                        android:paddingLeft="16dp"
                         android:scrollbars="vertical" />
 
                     <!--bank detail-->
 
                     <LinearLayout
-                        android:layout_marginBottom="16dp"
                         android:id="@+id/_ll_hide_others"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -333,7 +331,11 @@
                                 android:layout_height="wrap_content"
                                 android:hint="Additional Info."
                                 android:imeOptions="actionDone"
-                                android:padding="10dp"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:layout_marginBottom="16dp"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
                                 android:singleLine="true" />
 
 
@@ -353,14 +355,14 @@
 
 
     <Button
+
         android:id="@+id/btn_submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center"
-        android:layout_weight="0.05"
+        android:layout_gravity="center"
+        android:layout_weight="0.01"
         android:background="@android:color/black"
-        android:gravity="center"
-        android:padding="5dp"
+        android:padding="10dp"
         android:text="submit"
         android:textAllCaps="true"
         android:textColor="@android:color/white" />

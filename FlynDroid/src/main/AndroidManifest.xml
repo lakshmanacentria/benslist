@@ -273,6 +273,19 @@
             android:windowSoftInputMode="stateHidden" />
 
         <activity
+            android:name="com.acentria.benslist.controllers.CharityDetailActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_blank"
+            android:theme="@style/Theme.FlynaxDefault"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.acentria.benslist.controllers.CharityDonateActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_blank"
+            android:theme="@style/Theme.FlynaxDefault"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" /> <!-- optional (needed if default theme has no action bar) -->
 

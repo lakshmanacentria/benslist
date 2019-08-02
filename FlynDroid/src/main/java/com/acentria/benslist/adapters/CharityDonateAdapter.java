@@ -1,6 +1,7 @@
 package com.acentria.benslist.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -8,9 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.acentria.benslist.R;
+import com.acentria.benslist.controllers.CharityDetailActivity;
 import com.acentria.benslist.response.DonateCharityResponse;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -24,10 +27,12 @@ public class CharityDonateAdapter extends RecyclerView.Adapter<CharityDonateAdap
     private String img_link = "";
     private Context mcontext;
     private List<DonateCharityResponse> mlist;
+    private onclickposi monclickposi;
 
-    public CharityDonateAdapter(Context context, List<DonateCharityResponse> list) {
+    public CharityDonateAdapter(Context context, List<DonateCharityResponse> list/*,onclickposi onclickposi*/) {
         this.mcontext = context;
         this.mlist = list;
+//        this.monclickposi=onclickposi;
     }
 
     public CharityDonateAdapter(List<DonateCharityResponse> list, Context activity) {
@@ -43,7 +48,7 @@ public class CharityDonateAdapter extends RecyclerView.Adapter<CharityDonateAdap
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         if (mlist.size() > 0) {
             holder.tv_donate_name.setText(mlist.get(position).getTitle());
             holder.tv_donate_date.setText(mlist.get(position).getPostedDate());
@@ -59,7 +64,14 @@ public class CharityDonateAdapter extends RecyclerView.Adapter<CharityDonateAdap
             img_link = "https://www.benslist.com/files/" + mlist.get(position).getImage();
             Log.e(TAG, "imageLink by posi " + position + "\t" + img_link);
             Glide.with(mcontext).load(img_link).placeholder(R.mipmap.no_image).diskCacheStrategy(DiskCacheStrategy.ALL).dontAnimate().into(holder.iv_itmes);
-
+            holder.rl_select.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+//                    monclickposi.onPosClick(position,mlist.get(position).getRefNumber());
+                    mcontext.startActivity(new Intent(mcontext, CharityDetailActivity.class).putExtra("Ref_no", mlist.get(position).getRefNumber())
+                            .putExtra("ImgLink", img_link).putExtra("ammount", mlist.get(position).getAmount()));
+                }
+            });
         } else {
             Log.e(TAG, "mlist size 0 ");
         }
@@ -74,6 +86,7 @@ public class CharityDonateAdapter extends RecyclerView.Adapter<CharityDonateAdap
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView tv_donate_name, tv_donate_date, tv_donate_price, tv_donated_email, tv_donated_phone;
         private ImageView iv_itmes;
+        private RelativeLayout rl_select;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -83,8 +96,13 @@ public class CharityDonateAdapter extends RecyclerView.Adapter<CharityDonateAdap
             tv_donate_price = itemView.findViewById(R.id.tv_donate_price);
             tv_donated_email = itemView.findViewById(R.id.tv_donated_email);
             tv_donated_phone = itemView.findViewById(R.id.tv_donated_phone);
+            rl_select = itemView.findViewById(R.id.rl_select);
 
 
         }
+    }
+
+    public interface onclickposi {
+        void onPosClick(int posi, String ref_number);
     }
 }

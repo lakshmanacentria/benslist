@@ -97,7 +97,7 @@ public class FoodActivity extends AppCompatActivity {
     private void openfragment(Fragment fragment) {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.ll_container, fragment)
-                .addToBackStack(null).commit();
+                /*.addToBackStack(null)*/.commit();
     }
 
     @Override
@@ -113,7 +113,8 @@ public class FoodActivity extends AppCompatActivity {
     }
 
     private void onBackPressMethod() {
-        onBackPressed();
+        Utils.showContent();
+        finish();
     }
 
 
@@ -136,12 +137,9 @@ public class FoodActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-
-       /* Intent intent = new Intent(this , Home.class);
-       startActivity(intent);
-        finish();*/
+//        super.onBackPressed();
         Utils.showContent();
+        finish();
         Log.e(TAG, "onBackPressed");
     }
 

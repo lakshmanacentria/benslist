@@ -1,5 +1,6 @@
 package com.acentria.benslist.fragments;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
@@ -16,16 +17,20 @@ import android.widget.Toast;
 
 import com.acentria.benslist.R;
 import com.acentria.benslist.Utils;
+import com.acentria.benslist.controllers.CharityActivity;
 import com.acentria.benslist.response.DonateCharityResponse;
 import com.acentria.benslist.adapters.CharityDonateAdapter;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
 import org.json.JSONArray;
 import org.json.JSONException;
+
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -45,16 +50,16 @@ public class DonateCharityFrag extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         Log.e(TAG, "onActivityCreated");
-        if (Utils.isOnline(getActivity())) {
-            call_donatecharityApi();
-        } else {
-            Toast.makeText(getActivity(), getResources().getString(R.string.network_connection_error), Toast.LENGTH_LONG).show();
-        }
+
+
     }
+
+
+    View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_food_donate, container, false);
+        view = inflater.inflate(R.layout.fragment_food_donate, container, false);
         initializeUI(view);
         Log.e(TAG, "view ");
 
@@ -70,6 +75,15 @@ public class DonateCharityFrag extends Fragment {
         progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.setMessage("Loading...");
 
+        try {
+            if (Utils.isOnline(getActivity())) {
+                call_donatecharityApi();
+            } else {
+                Toast.makeText(getActivity(), getResources().getString(R.string.network_connection_error), Toast.LENGTH_LONG).show();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
     }
 

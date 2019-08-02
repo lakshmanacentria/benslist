@@ -112,13 +112,29 @@ public class CreatCharityFrag extends Fragment implements RadioGroup.OnCheckedCh
 
     }
 
+
+    @Override
+    public void onDestroy() {
+        if (view.getParent() != null) {
+            ((ViewGroup) view.getParent()).removeView(view);
+        }
+        super.onDestroy();
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_layout_create_charity, container, false);
-        EnableRunTimePermission();
-        Log.e(TAG, "view ");
-        context = container.getContext();
-        initializeUI(view, context);
+        if (view == null) {
+            view = inflater.inflate(R.layout.fragment_layout_create_charity, container, false);
+            EnableRunTimePermission();
+            Log.e(TAG, "null view ");
+            context = container.getContext();
+            initializeUI(view, context);
+
+        } else {
+            ((ViewGroup) view.getParent()).removeView(view);
+            Log.e(TAG, "reomove view");
+        }
+
         return view;
     }
 
