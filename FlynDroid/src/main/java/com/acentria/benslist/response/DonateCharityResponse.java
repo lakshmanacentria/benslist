@@ -87,6 +87,7 @@ public class DonateCharityResponse {
     @SerializedName("ref_number")
     @Expose
     private String refNumber;
+    private String manualQuanty;
 
     public String getId() {
         return id;
@@ -225,5 +226,13 @@ public class DonateCharityResponse {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public void setManualQuanty(String manualQuanty) {
+        this.manualQuanty=manualQuanty;
+    }
+
+    public String getManualQuanty() {
+        return manualQuanty;
     }
 }

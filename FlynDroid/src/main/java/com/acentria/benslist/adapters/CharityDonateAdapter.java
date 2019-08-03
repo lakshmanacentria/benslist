@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.acentria.benslist.R;
 import com.acentria.benslist.controllers.CharityDetailActivity;
@@ -28,16 +29,20 @@ public class CharityDonateAdapter extends RecyclerView.Adapter<CharityDonateAdap
     private Context mcontext;
     private List<DonateCharityResponse> mlist;
     private onclickposi monclickposi;
+    private boolean is_food_select = false;
 
     public CharityDonateAdapter(Context context, List<DonateCharityResponse> list/*,onclickposi onclickposi*/) {
         this.mcontext = context;
         this.mlist = list;
+        is_food_select = false;
 //        this.monclickposi=onclickposi;
     }
 
-    public CharityDonateAdapter(List<DonateCharityResponse> list, Context activity) {
+
+    public CharityDonateAdapter(List<DonateCharityResponse> list, Context activity, boolean isfood_side) {
         this.mlist = list;
         this.mcontext = activity;
+        this.is_food_select = isfood_side;
     }
 
     @NonNull
@@ -68,8 +73,16 @@ public class CharityDonateAdapter extends RecyclerView.Adapter<CharityDonateAdap
                 @Override
                 public void onClick(View v) {
 //                    monclickposi.onPosClick(position,mlist.get(position).getRefNumber());
-                    mcontext.startActivity(new Intent(mcontext, CharityDetailActivity.class).putExtra("Ref_no", mlist.get(position).getRefNumber())
-                            .putExtra("ImgLink", img_link).putExtra("ammount", mlist.get(position).getAmount()));
+                    if (is_food_select == true) {
+                        Toast.makeText(mcontext ,"Under Working", Toast.LENGTH_SHORT).show();
+                        mcontext.startActivity(new Intent(mcontext, CharityDetailActivity.class).putExtra("Ref_no", mlist.get(position).getRefNumber())
+                                .putExtra("ImgLink", img_link).putExtra("ammount", mlist.get(position).getAmount()).putExtra("is_foodside", "Fooddonate"));
+                    } else {
+
+                        mcontext.startActivity(new Intent(mcontext, CharityDetailActivity.class).putExtra("Ref_no", mlist.get(position).getRefNumber())
+                                .putExtra("ImgLink", img_link).putExtra("ammount", mlist.get(position).getAmount()));
+                    }
+
                 }
             });
         } else {

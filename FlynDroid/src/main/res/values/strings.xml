@@ -77,7 +77,7 @@
     <string name="description_error">The "Description" field is required.</string>
     <string name="product_filed_error">The "Product" field is required.</string>
     <string name="qauntity_fileld_error">The "Quantity" field is required.</string>
-    <string name="ammout_filed_error">The "Ammount" field is required.</string>
+    <string name="ammout_filed_error">The "Amount" field is required.</string>
     <string name="email_empty">The "Email" field is required.</string>
     <string name="valid_email_error">please fill valid email.</string>
     <string name="teli_empty">please fill tel. fields</string>
@@ -90,5 +90,7 @@
     <string name="add_desc_fields_error">The "Address description" field is required.</string>
     <string name="server_error">Something went wrong..</string>
     <string name="remaining_goods">Remaining Goods</string>
+    <string name="firstname_filed_required">fist name field is required.</string>
+    <string name="lastname_filed_required">last name field is required.</string>
 
 </resources>

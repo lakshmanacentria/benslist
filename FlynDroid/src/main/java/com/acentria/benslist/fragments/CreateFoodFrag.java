@@ -264,7 +264,6 @@ public class CreateFoodFrag extends Fragment implements View.OnClickListener {
             }
         });
     }
-
     /*call state Api and set data on  state spinner*/
     private void call_StateApi(final String countryName) {
 
@@ -341,7 +340,6 @@ public class CreateFoodFrag extends Fragment implements View.OnClickListener {
 
 
     }
-
     /*call city Api and set date on city spinner */
     private void call_cityApi(String stateName, String countryName) {
 
@@ -385,7 +383,7 @@ public class CreateFoodFrag extends Fragment implements View.OnClickListener {
                                 public void run() {
                                     progressDialog.dismiss();
                                     spinner_select_city.setAdapter(cityArrayAdapter);
-                                    EnableRunTimePermission();
+
                                 }
                             });
 
@@ -653,7 +651,6 @@ public class CreateFoodFrag extends Fragment implements View.OnClickListener {
         if (address.isEmpty()) {
             et_description.setError(getResources().getString(R.string.add_desc_fields_error));
             valid = false;
-//            Toast.makeText(getActivity(), getResources().getString(R.string.add_desc_fields_error), Toast.LENGTH_LONG).show();
             Log.e(TAG, "Address  fields is request " + address);
         } else {
             et_description.setError(null);
@@ -662,7 +659,6 @@ public class CreateFoodFrag extends Fragment implements View.OnClickListener {
         if (additional_info.isEmpty()) {
             et_address_des.setError(getResources().getString(R.string.additonal_info_error));
             valid = false;
-//            Toast.makeText(getActivity(), getResources().getString(R.string.add_desc_fields_error), Toast.LENGTH_LONG).show();
             Log.e(TAG, "Address  fields is request " + address);
         } else {
             et_address_des.setError(null);

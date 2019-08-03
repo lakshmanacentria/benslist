@@ -7,15 +7,14 @@
     android:orientation="vertical">
 
     <android.support.design.widget.AppBarLayout
-        android:visibility="gone"
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="256dp"
         android:background="@android:color/white"
         android:fitsSystemWindows="true"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:expanded="true"
-       >
+        android:visibility="gone"
+        app:expanded="true">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapsing_toolbar"
@@ -78,24 +77,22 @@
             android:orientation="vertical">
 
             <ImageView
-                android:visibility="visible"
                 android:id="@+id/iv_img"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"
                 android:src="@mipmap/seller_no_photo"
-                />
+                android:visibility="visible" />
 
             <TextView
-                android:layout_marginTop="16dp"
                 android:id="@+id/tv_total_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Total Goods"
-                android:paddingRight="16dp"
+                android:layout_marginTop="10dp"
                 android:paddingLeft="16dp"
-
+                android:paddingRight="16dp"
+                android:text="Total Goods"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -104,9 +101,11 @@
                 android:id="@+id/ll_total"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:orientation="vertical">
-
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:orientation="vertical"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
 
             </LinearLayout>
 
@@ -116,12 +115,12 @@
                 android:background="@drawable/shape_button_grey" />
 
             <TextView
-                android:layout_marginTop="16dp"
-                android:paddingRight="16dp"
-                android:paddingLeft="16dp"
                 android:id="@+id/tv_remaingtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
                 android:text="@string/remaining_goods"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
@@ -131,11 +130,15 @@
                 android:id="@+id/ll_remaining"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:orientation="vertical">
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:orientation="vertical"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
 
 
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -148,8 +151,8 @@
                 android:layout_gravity="center"
                 android:layout_margin="16dp"
                 android:background="@color/about_app_link_color"
-                android:text="Donate now"
                 android:padding="10dp"
+                android:text="Donate now"
                 android:textAllCaps="true"
                 android:textColor="@android:color/white" />
 

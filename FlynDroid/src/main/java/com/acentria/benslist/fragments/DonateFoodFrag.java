@@ -114,7 +114,7 @@ public class DonateFoodFrag extends Fragment {
                                     rv_donate_charity.setVisibility(View.VISIBLE);
                                     tv_no_records.setVisibility(View.GONE);
                                     rv_donate_charity.setLayoutManager(new LinearLayoutManager(getActivity()));
-                                    adatper = new CharityDonateAdapter(list, getActivity());
+                                    adatper = new CharityDonateAdapter(list, getActivity(),true);
                                     rv_donate_charity.setAdapter(adatper);
                                     adatper.notifyDataSetChanged();
                                 }

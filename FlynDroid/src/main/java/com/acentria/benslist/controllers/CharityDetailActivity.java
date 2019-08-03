@@ -108,6 +108,7 @@ public class CharityDetailActivity extends AppCompatActivity implements View.OnC
 
 //        setSupportActionBar(animToolbar);
         if (getIntent().getExtras() != null) {
+
             ref_no = getIntent().getStringExtra("Ref_no");
             imglink = getIntent().getStringExtra("ImgLink");
             Log.e(TAG, "imgLink " + imglink);
@@ -115,6 +116,10 @@ public class CharityDetailActivity extends AppCompatActivity implements View.OnC
             Glide.with(this).load(imglink).placeholder(R.mipmap.seller_no_photo).diskCacheStrategy(DiskCacheStrategy.ALL).dontAnimate().into(iv_img);
             price = getIntent().getStringExtra("ammount");
             Log.e(TAG, "refno" + ref_no);
+            if (getIntent().getStringExtra("is_foodside") != null) {
+
+                setTitle("Food Charity Detail");
+            }
 
         }
 
@@ -242,8 +247,17 @@ public class CharityDetailActivity extends AppCompatActivity implements View.OnC
             tv_remaining.setTextColor(Color.BLACK);
             tv_total.setLayoutParams(lparams);
             tv_remaining.setLayoutParams(lparams);
-            tv_total.setText(list.get(i).getProduct() + " : " + list.get(i).getQuantity());
-            tv_remaining.setText(list.get(i).getProduct() + " : " + list.get(i).getQuantityRemain());
+            if (list.get(i).getAmount().equalsIgnoreCase("0")) {
+                tv_total.setText(list.get(i).getProduct() + " : " + list.get(i).getQuantity());
+                tv_remaining.setText(list.get(i).getProduct() + " : " + list.get(i).getQuantityRemain());
+            } else {
+                tv_total.setText("$" + list.get(i).getAmount());
+                tv_remaining.setText("$" + list.get(i).getRemainingAmount());
+                tv_total.setTypeface(null, Typeface.BOLD);
+                tv_remaining.setTypeface(null, Typeface.BOLD);
+                tv_total.setTextColor(getResources().getColor(R.color.about_app_link_color));
+                tv_remaining.setTextColor(getResources().getColor(R.color.about_app_link_color));
+            }
             this.ll_total.addView(tv_total);
             this.ll_remainingl.addView(tv_remaining);
             Log.e(TAG, "list" + list.get(i).getImage());
@@ -284,7 +298,12 @@ public class CharityDetailActivity extends AppCompatActivity implements View.OnC
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_donateknow:
-                startActivity(new Intent(this, CharityDonateActivity.class));
+                if(getIntent().getStringExtra("is_foodside")!=null){
+                    startActivity(new Intent(this, CharityDonateActivity.class).putExtra("Ref_no", ref_no).putExtra("is_foodside",getIntent().getStringExtra("is_foodside")));
+                }else {
+                    startActivity(new Intent(this, CharityDonateActivity.class).putExtra("Ref_no", ref_no));
+
+                }
                 break;
         }
 
