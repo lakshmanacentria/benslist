@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/Home"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -18,20 +19,44 @@
             android:layout_height="0dp"
             android:layout_weight="1">
 
-            <GridView
-                android:id="@+id/featured"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:clickable="true"
-                android:columnWidth="@dimen/home_grid_column_width"
-                android:drawSelectorOnTop="true"
-                android:gravity="top|left|start"
-                android:horizontalSpacing="5dip"
-                android:fadingEdge="none"
-                android:listSelector="@drawable/featured_item_state"
-                android:numColumns="auto_fit"
-                android:stretchMode="columnWidth"
-                android:verticalSpacing="5dip" />
+            <!--inmplement horizonal viewpager-->
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.synnapps.carouselview.CarouselView
+                    android:id="@+id/carouselView"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    app:fillColor="@android:color/white"
+                    app:radius="6dp"
+                    android:visibility="visible"
+                    app:slideInterval="3000"
+                    app:pageColor="#00000000"
+                    app:strokeColor="@android:color/background_dark"
+                    app:strokeWidth="1dp"
+
+                    />
+                <GridView
+                    android:id="@+id/featured"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:clickable="true"
+                    android:columnWidth="@dimen/home_grid_column_width"
+                    android:drawSelectorOnTop="true"
+                    android:gravity="top|left|start"
+                    android:horizontalSpacing="5dip"
+                    android:fadingEdge="none"
+                    android:listSelector="@drawable/featured_item_state"
+                    android:numColumns="auto_fit"
+                    android:stretchMode="columnWidth"
+                    android:verticalSpacing="5dip" />
+
+
+            </LinearLayout>
+
 
         </android.support.v4.widget.SwipeRefreshLayout>
 

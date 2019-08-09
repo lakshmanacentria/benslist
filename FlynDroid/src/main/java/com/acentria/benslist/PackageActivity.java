@@ -45,6 +45,7 @@ public class PackageActivity extends AppCompatActivity {
     private LinearLayout plan_container;
     public static PackagesItemAdapter PackagesAdapter;
     private Button purchase;
+    private String TAG = PackageActivity.class.getSimpleName();
 
 
     @Override
@@ -60,7 +61,7 @@ public class PackageActivity extends AppCompatActivity {
 
         setTitle(Lang.get("title_activity_select_plan"));
         setContentView(R.layout.view_my_packages);
-
+        Log.e(TAG, "title=> " + Lang.get("title_activity_select_plan"));
         /* get related view */
         main_container = (LinearLayout) findViewById(R.id.MyPackages);
         loading_container = (LinearLayout) main_container.findViewById(R.id.progress_bar_custom);
@@ -101,7 +102,8 @@ public class PackageActivity extends AppCompatActivity {
                         purchase.setVisibility(View.GONE);
                     }
 
-                } catch (UnsupportedEncodingException e1) {}
+                } catch (UnsupportedEncodingException e1) {
+                }
             }
 
             @Override
@@ -114,7 +116,7 @@ public class PackageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (PackagesAdapter.selected_id== null) {
+                if (PackagesAdapter.selected_id == null) {
                     Dialog.simpleWarning(Lang.get("dialog_no_plan_selected"), instance);
                 } else {
                     HashMap<String, String> plan = plans.get(PackagesAdapter.getActivePosition());
@@ -152,21 +154,19 @@ public class PackageActivity extends AppCompatActivity {
                                     XMLParser parser = new XMLParser();
                                     Document doc = parser.getDomElement(response, url);
 
-                                    if ( doc == null ) {
+                                    if (doc == null) {
                                         Dialog.simpleWarning(Lang.get("dialog_unable_save_data_on_server"), instance);
-                                    }
-                                    else {
+                                    } else {
                                         NodeList successNode = doc.getElementsByTagName("success");
                                         if (successNode.getLength() > 0) {
                                             Element success = (Element) successNode.item(0);
-                                            HashMap<String, String> plan =  Utils.parseHash(success.getChildNodes());
+                                            HashMap<String, String> plan = Utils.parseHash(success.getChildNodes());
                                             boolean availablePlans = plans.size() > 1 ? true : false;
                                             MyPackages.updatePackage(plan, availablePlans);
 
                                             Dialog.simpleWarning(Lang.get("listing_plan_purchase"));
                                             instance.finish();
-                                        }
-                                        else {
+                                        } else {
                                             Dialog.simpleWarning(Lang.get("dialog_unable_save_data_on_server"), instance);
                                         }
                                     }
@@ -193,7 +193,7 @@ public class PackageActivity extends AppCompatActivity {
                         payment_hash.put("plan", plan.get("id")); //plan id
                         payment_hash.put("featured", "0"); //appearance type
                         payment_hash.put("plan_key", plan.get("key"));
-                        payment_hash.put("product_type", plan.containsKey("product_type") ? plan.get("product_type") : "0" );
+                        payment_hash.put("product_type", plan.containsKey("product_type") ? plan.get("product_type") : "0");
                         payment_hash.put("subscription", PackagesAdapter.subscription_id);
                         payment_hash.put("success_phrase", Lang.get(Utils.getCacheConfig("listing_auto_approval").equals("1") ? "listing_paid_auto_approved" : "listing_paid_pending"));
 
@@ -224,7 +224,7 @@ public class PackageActivity extends AppCompatActivity {
         loading_container.setVisibility(View.GONE);
         plan_container.setVisibility(View.VISIBLE);
 
-		/* create list view of comments */
+        /* create list view of comments */
 //        GridView grid = new GridView(Config.context);
         GridView grid = (GridView) Config.context.getLayoutInflater().inflate(R.layout.grid_view, null);
         ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(
@@ -251,22 +251,20 @@ public class PackageActivity extends AppCompatActivity {
         switch (requestCode) {
 
             case Config.RESULT_PAYMENT:
-                if ( resultCode == RESULT_OK ) {
+                if (resultCode == RESULT_OK) {
                     Dialog.simpleWarning(Lang.get("listing_plan_purchase"));
-                    if ( data.hasExtra("success") ) {
+                    if (data.hasExtra("success")) {
                         HashMap<String, String> plan = (HashMap<String, String>) data.getSerializableExtra("success");
                         boolean availablePlans = plans.size() > 1 ? true : false;
                         MyPackages.updatePackage(plan, availablePlans);
                         instance.finish();
-                    }
-                    else {
+                    } else {
                         Log.d("FD", "Add Listing Activity - no success data received, listview update failed");
                         Dialog.simpleWarning(Lang.get("dialog_unable_approve_transaction"));
                     }
-                }
-                else if (resultCode == Config.RESULT_TRANSACTION_FAILED ) {
+                } else if (resultCode == Config.RESULT_TRANSACTION_FAILED) {
                     Dialog.simpleWarning(Lang.get("dialog_unable_approve_transaction"));
-                    Utils.bugRequest("Payment result error ("+Utils.getSPConfig("domain", "")+")", data.toString());
+                    Utils.bugRequest("Payment result error (" + Utils.getSPConfig("domain", "") + ")", data.toString());
                 }
                 break;
 

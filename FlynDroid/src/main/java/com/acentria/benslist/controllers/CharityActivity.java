@@ -15,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.acentria.benslist.Config;
@@ -22,6 +23,8 @@ import com.acentria.benslist.R;
 import com.acentria.benslist.Utils;
 import com.acentria.benslist.fragments.CreatCharityFrag;
 import com.acentria.benslist.fragments.DonateCharityFrag;
+import com.synnapps.carouselview.CarouselView;
+import com.synnapps.carouselview.ImageListener;
 
 
 public class CharityActivity extends AppCompatActivity {
@@ -29,7 +32,7 @@ public class CharityActivity extends AppCompatActivity {
     private LinearLayout ll_container;
     private TabLayout tabLayout;
 
-
+    private int[] sampleImages = {R.mipmap.in, R.mipmap.au, R.mipmap.md};
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,6 +41,11 @@ public class CharityActivity extends AppCompatActivity {
         setContentView(R.layout.activity_charity_layout);
         ll_container = (LinearLayout) findViewById(R.id.ll_container);
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
+
+
+        CarouselView carouselView;    carouselView = findViewById(R.id.carouselView);
+        carouselView.setPageCount(sampleImages.length);
+        carouselView.setImageListener(imageListner);
 
         /* enable back action */
         ActionBar actionbar = getSupportActionBar();
@@ -72,7 +80,17 @@ public class CharityActivity extends AppCompatActivity {
                 Log.e(TAG, "onTabReselected=>" + tab.getPosition() + " " + tab.getText());
             }
         });
+
+
+
     }
+
+    private ImageListener imageListner = new ImageListener() {
+        @Override
+        public void setImageForPosition(int position, ImageView imageView) {
+            imageView.setImageResource(sampleImages[position]);
+        }
+    };
 
 
     @Override

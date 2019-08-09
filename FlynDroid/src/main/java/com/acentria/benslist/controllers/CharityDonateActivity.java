@@ -1,6 +1,8 @@
 package com.acentria.benslist.controllers;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
@@ -25,6 +27,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.acentria.benslist.Config;
+import com.acentria.benslist.Dialog;
+import com.acentria.benslist.PurchaseActivity;
 import com.acentria.benslist.R;
 import com.acentria.benslist.Utils;
 import com.acentria.benslist.adapters.CharityDonateAdapter;
@@ -35,6 +39,12 @@ import com.acentria.benslist.response.DonateCharityResponse;
 import com.acentria.benslist.response.State;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.paypal.android.MEP.PayPalActivity;
+import com.paypal.android.sdk.payments.PayPalConfiguration;
+import com.paypal.android.sdk.payments.PayPalPayment;
+import com.paypal.android.sdk.payments.PayPalService;
+import com.paypal.android.sdk.payments.PaymentActivity;
+import com.paypal.android.sdk.payments.PaymentConfirmation;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -43,6 +53,7 @@ import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,6 +66,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class CharityDonateActivity extends AppCompatActivity implements ProductqunatiyAdapter.onClickQuanity, View.OnClickListener, CompoundButton.OnCheckedChangeListener {
+    private static final int PAYPAL_REQUEST_CODE = 123;
     private String TAG = "CharityDonateActivity=>";
     private String ref_no, mrs_str = "", country_str = "", state_str = "", city_str = "", ammount_withoutgood_str = "",
             fristname = "", lastname = "", email_str = "", telephone = "", address = "", keepme_str = "", charity_id = "", payer_email = "", residence_country = "";
@@ -80,6 +92,16 @@ public class CharityDonateActivity extends AppCompatActivity implements Productq
     private RadioButton radio_paypal;
     private ProgressDialog progressDialog;
     private ProductqunatiyAdapter adatper;
+
+    static String env_mode = Utils.getCacheConfig("android_paypal_sandbox").equals("1") ? PayPalConfiguration.ENVIRONMENT_SANDBOX : PayPalConfiguration.ENVIRONMENT_PRODUCTION;
+
+
+    //Paypal Configuration Object
+    private static PayPalConfiguration config = new PayPalConfiguration()
+            // Start with mock environment.  When ready, switch to sandbox (ENVIRONMENT_SANDBOX)
+            // or live (ENVIRONMENT_PRODUCTION)
+                .environment(PayPalConfiguration.ENVIRONMENT_SANDBOX)
+            .clientId(Config.PAYPAL_CLIENT_ID);
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -152,6 +174,19 @@ public class CharityDonateActivity extends AppCompatActivity implements Productq
             Toast.makeText(this, getResources().getString(R.string.network_connection_error), Toast.LENGTH_LONG).show();
         }
         Utils.hideKeyboard(ll_product_qauntity);
+
+
+        /*paypal account intilize */
+        Intent intent = new Intent(this, PayPalService.class);
+        intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
+        startService(intent);
+        Log.e(TAG, "env_mode=>"+ env_mode);
+    }
+
+    @Override
+    protected void onDestroy() {
+        stopService(new Intent(this, PayPalService.class));
+        super.onDestroy();
     }
 
 
@@ -587,12 +622,17 @@ public class CharityDonateActivity extends AppCompatActivity implements Productq
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_submit:
-                if (getIntent().getStringExtra("is_foodside") != null) {
-                    validationcharityDonateApi();
-                    Toast.makeText(this, "Under Working", Toast.LENGTH_LONG).show();
-                } else {
-                    validationcharityDonateApi();
-                }
+//                if (getIntent().getStringExtra("is_foodside") != null) {
+//                    validationcharityDonateApi();
+//                    Toast.makeText(this, "Under Working", Toast.LENGTH_LONG).show();
+//                } else {
+//                    validationcharityDonateApi();
+//                }
+
+
+                /*got to paypal sdk*/
+                getpaymentwithpaypal();
+
                 break;
             case R.id.radio_paypal:
                 if (radio_paypal.isSelected() == false) {
@@ -603,6 +643,7 @@ public class CharityDonateActivity extends AppCompatActivity implements Productq
                 break;
         }
     }
+
 
     private void validationcharityDonateApi() {
         if (!is_validation()) {
@@ -817,4 +858,90 @@ public class CharityDonateActivity extends AppCompatActivity implements Productq
         Log.e(TAG, "onCheckedChanged" + keepme_str + "icchekd " + isChecked);
 
     }
+
+
+    /*go to paypal activity to get status and result*/
+    private void getpaymentwithpaypal() {
+        //Creating a paypalpayment
+        String paymentAmount = et_amount_without_gods.getText().toString();
+        if (paymentAmount.isEmpty()) {
+            Log.e(TAG, "paymentAmount is empty to retrun=> " + paymentAmount);
+            return;
+        }
+        PayPalPayment payment = new PayPalPayment(new BigDecimal(String.valueOf(paymentAmount)), "USD", "Simplified Coding Fee",
+                PayPalPayment.PAYMENT_INTENT_SALE);
+        //Creating Paypal Payment activity intent
+        Intent intent = new Intent(this, PaymentActivity.class);
+        //putting the paypal configuration to the intent
+        intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
+
+        //Puting paypal payment to the intent
+        intent.putExtra(PaymentActivity.EXTRA_PAYMENT, payment);
+        //Starting the intent activity for result
+        //the request code will be used on the method onActivityResult
+        startActivityForResult(intent, 105);
+
+    }
+
+
+    /*for using paypal implementation*/
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        //If the result is from paypal
+//        if (requestCode == PAYPAL_REQUEST_CODE) {
+            //If the result is OK i.e. user has not canceled the payment
+            if (resultCode == Activity.RESULT_OK) {
+                //Getting the payment confirmation
+                PaymentConfirmation confirm = data.getParcelableExtra(PaymentActivity.EXTRA_RESULT_CONFIRMATION);
+                //if confirmation is not null
+                if (confirm != null) {
+                    try {
+                        //Getting the payment details
+                        String paymentDetails = confirm.toJSONObject().toString(4);
+                        Log.i("paymentExample", paymentDetails);
+                        Log.e(TAG, "paymentsDetal response=> " + paymentDetails);
+
+//                        //Starting a new activity for the payment details and also putting the payment details with intent
+//                        startActivity(new Intent(this, ConfirmationActivity.class)
+//                                .putExtra("PaymentDetails", paymentDetails)
+//                                .putExtra("PaymentAmount", paymentAmount));
+
+                    } catch (JSONException e) {
+                        Log.e(TAG, "an extremely unlikely failure occurred: ", e);
+                    }
+                }
+            } else if (resultCode == Activity.RESULT_CANCELED) {
+                Log.i(TAG, "The user canceled.");
+            } else if (resultCode == PaymentActivity.RESULT_EXTRAS_INVALID) {
+                Log.i(TAG, "An invalid Payment or PayPalConfiguration was submitted. Please see the docs.");
+            }
+        }
+//    }
+
+
+
+//    public void onResult(int requestCode, int resultCode, Intent data) {
+//        if (resultCode == Activity.RESULT_OK) {
+//            if (data.hasExtra(PayPalActivity.EXTRA_PAY_KEY)) {
+//                Log.d("FD - pay key", data.getStringExtra(PayPalActivity.EXTRA_PAY_KEY));
+//            }
+//            if (data.hasExtra(PayPalActivity.EXTRA_PAYMENT_STATUS)) {
+//                Log.d("FD - pay status", data.getStringExtra(PayPalActivity.EXTRA_PAYMENT_STATUS));
+//            }
+//
+//            try {
+//                Log.e(TAG, "Response " + data.getStringExtra(PayPalActivity.EXTRA_PAY_KEY));
+//
+//            } catch (Exception e) {
+//                Dialog.simpleWarning(R.string.paypal_failed, this);
+//                Log.d("paymentExample", "an extremely unlikely failure occurred: ", e);
+//            }
+//        } else if (resultCode == Activity.RESULT_CANCELED) {
+//            // user canceled payment
+//        } else if (resultCode == PayPalActivity.RESULT_FAILURE) {
+//            Dialog.simpleWarning(data.getStringExtra(PayPalActivity.EXTRA_ERROR_MESSAGE), this);
+//        }
+//    }
+
 }

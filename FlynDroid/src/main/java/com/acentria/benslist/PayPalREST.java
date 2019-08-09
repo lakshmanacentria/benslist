@@ -26,6 +26,7 @@ public class PayPalREST {
     private Context instance;
     private HashMap<String, String> purchaseData;
     public static boolean ppRestActive = false;
+    private String TAG = "PayPalREST=> ";
 
     public PayPalREST(Activity ref_activity, Context ref_instance, HashMap<String, String> ref_purchaseData) {
         // return if REST lib is not supported
@@ -54,8 +55,9 @@ public class PayPalREST {
 
             @Override
             public void onClick(View v) {
-                Log.d("FD", purchaseData.toString());
-                PayPalPayment payment = new PayPalPayment(new BigDecimal(purchaseData.get("amount")), Utils.getCacheConfig("android_billing_currency"), purchaseData.get("title"),
+                Log.e(TAG + "FD=>", purchaseData.toString());
+                PayPalPayment payment = new PayPalPayment(new BigDecimal(purchaseData.get("amount")), Utils.getCacheConfig("android_billing_currency"),
+                        purchaseData.get("title"),
                         PayPalPayment.PAYMENT_INTENT_SALE);
 
                 Intent intent = new Intent(activity, PaymentActivity.class);
@@ -80,7 +82,7 @@ public class PayPalREST {
     }
 
     public void onResult(int requestCode, int resultCode, Intent data) {
-        if ( resultCode == Activity.RESULT_OK ) {
+        if (resultCode == Activity.RESULT_OK) {
             PaymentConfirmation confirm = data.getParcelableExtra(PaymentActivity.EXTRA_RESULT_CONFIRMATION);
             if (confirm != null) {
                 try {
@@ -93,11 +95,9 @@ public class PayPalREST {
                     Log.d("paymentExample", "an extremely unlikely failure occurred: ", e);
                 }
             }
-        }
-        else if ( resultCode == Activity.RESULT_CANCELED ) {
+        } else if (resultCode == Activity.RESULT_CANCELED) {
             // user canceled payment
-        }
-        else if ( resultCode == PaymentActivity.RESULT_EXTRAS_INVALID ) {
+        } else if (resultCode == PaymentActivity.RESULT_EXTRAS_INVALID) {
             Dialog.simpleWarning(R.string.paypal_failed, activity);
         }
     }

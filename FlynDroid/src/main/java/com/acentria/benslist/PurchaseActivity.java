@@ -48,6 +48,7 @@ public class PurchaseActivity extends AppCompatActivity {
     public PayPalMPL paypalMPL;
 	public Payment payment;
 	public static boolean subscription = false;;
+	private String TAG="PurchaseActivity=> ";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -149,7 +150,7 @@ public class PurchaseActivity extends AppCompatActivity {
 					String response = String.valueOf(new String(server_response, "UTF-8"));
 					progress.dismiss();
 
-					Log.d("FD - "+gateway, response);
+					Log.e(TAG+"FD - "+gateway, response);
 
 					/* parse response */
 					XMLParser parser = new XMLParser();

@@ -39,7 +39,19 @@
 			        android:text=""
 			        android:layout_weight="1"
 			        style="@style/price" />
-			    
+				<TextView
+					android:visibility="gone"
+					android:id="@+id/tv_chat"
+					android:ellipsize="end"
+					android:singleLine="true"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:paddingTop="3dp"
+					android:background="@color/about_app_link_color"
+					android:text="Chat"
+					android:gravity="center"
+					android:layout_weight="1"
+					style="@style/whitebold_caption" />
 				<ImageView
 			        android:id="@+id/icon_comments"
 			        android:src="@mipmap/details_icon_comments"

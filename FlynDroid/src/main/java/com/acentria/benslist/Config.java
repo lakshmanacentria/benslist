@@ -31,7 +31,8 @@ import cz.msebera.android.httpclient.Header;
 
 public final class Config {
 
-	public static FlynDroid context = null;
+    public static final String PAYPAL_CLIENT_ID ="Ad0JdJg4OwQhogZBlwfhgoXpLhfXTA073pP6Yvhpuk0L9pHH5yyUmji0nN13Rwd-xIJ_UVpSCLwnusQO" ;
+    public static FlynDroid context = null;
 	public static Activity mainActivity = null;
 	
 	public static Intent configIntent = null;

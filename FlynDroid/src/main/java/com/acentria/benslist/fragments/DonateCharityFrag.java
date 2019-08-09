@@ -97,10 +97,16 @@ public class DonateCharityFrag extends Fragment {
         okHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                progressDialog.dismiss();
-                tv_no_records.setVisibility(View.VISIBLE);
-                rv_donate_charity.setVisibility(View.GONE);
-                Log.e(TAG, "onfailure");
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        progressDialog.dismiss();
+                        tv_no_records.setVisibility(View.VISIBLE);
+                        rv_donate_charity.setVisibility(View.GONE);
+                        Log.e(TAG, "onfailure");
+                    }
+                });
+
             }
 
             @Override

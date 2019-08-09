@@ -73,7 +73,7 @@ import static com.facebook.GraphRequest.TAG;
 
 public class Utils {
 	private static final String TAG="Utils";
-	public static SharedPreferences SPSettings = PreferenceManager.getDefaultSharedPreferences(Config.context);
+	private static SharedPreferences SPSettings = PreferenceManager.getDefaultSharedPreferences(Config.context);
 	
 	public static ImageLoader imageLoaderDisc = ImageLoader.getInstance();// image loader (cache on disc)
 	public static DisplayImageOptions imageLoaderOptionsDisc;// image display image options (cache on disc)
