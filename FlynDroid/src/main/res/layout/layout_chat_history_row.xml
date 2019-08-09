@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/const_parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/const_right"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="08 JANUARY, 201916:01 PM"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@id/constraintLayout"
+            app:layout_constraintEnd_toEndOf="@id/constraintLayout" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/call_button_bluebg"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toStartOf="@+id/circularImageView"
+            app:layout_constraintTop_toBottomOf="@id/tv_date"
+            app:layout_constraintWidth_max="300dp">
+
+
+            <TextView
+                android:id="@+id/tv_fname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingStart="10dp"
+
+                android:paddingEnd="10dp"
+                android:text="User name"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/tv_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxWidth="240dp"
+                android:padding="10dp"
+
+                android:text="jkajdfjajfddfafgfhsfgsfgfdsgsgdsfgdsffgfgsdgsgsgsggsgsgsgsgsgsfgsfgsgsgsgsggsgg
+                gsgfgdsfgsgfdgdfgdsfgsfgsfksfadsfsadajfdjakdfasffd"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_fname" />
+
+
+        </android.support.constraint.ConstraintLayout>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circularImageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="10dp"
+            android:src="@mipmap/seller_no_photo"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <!--Leftside-->
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/const_left"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/const_right"
+
+        >
+
+        <TextView
+            android:id="@+id/tv_datee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="09 JANUARY, 201906:01 AM"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/constraintLayoutt"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/constraintLayoutt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/call_button_whitebg"
+            android:orientation="vertical"
+            app:layout_constraintStart_toEndOf="@+id/circularImageVieww"
+            app:layout_constraintTop_toBottomOf="@id/tv_datee"
+            app:layout_constraintWidth_max="250dp">
+
+
+            <TextView
+                android:id="@+id/tv_lname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="Merchent name"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/tv_messagee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxWidth="240dp"
+                android:padding="10dp"
+                android:text="jkajdfjajfddfafgfhsfgsfgfdsgsgdsfgdsffgfgsdgsgsgsggsgsgsgsgsgsfgsfgsgsgsgsggsgg
+                gsgfgdsfgsgfdgdfgdsfgsfgsfksfadsfsadajfdjakdfasffd"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_lname" />
+
+
+        </android.support.constraint.ConstraintLayout>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circularImageVieww"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/seller_no_photo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</android.support.constraint.ConstraintLayout>

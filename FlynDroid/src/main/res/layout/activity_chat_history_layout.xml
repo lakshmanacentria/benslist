@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constrain_parent"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_recyclerviw"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/ll_bottom"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
         android:overScrollMode="never"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
         android:scrollbars="none"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@id/ll_bottom"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@id/ll_bottom" />
 
 
     <TextView
         android:id="@+id/tv_no_records"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:background="@drawable/content_logo_bg"
         android:gravity="center_horizontal"
         android:paddingStart="35dip"
@@ -34,45 +34,58 @@
         android:paddingEnd="35dip"
         android:paddingRight="35dip"
         android:paddingBottom="40dip"
+
         android:text="No record Found"
         android:textColor="#0f1c1e"
         android:textSize="17sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:visibility="gone" />
 
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3px"
+        android:layout_above="@id/ll_bottom"
+        android:background="#F302BCD4" />
 
     <LinearLayout
         android:id="@+id/ll_bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/white"
         android:orientation="horizontal"
-        android:weightSum="2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rv_recyclerviw">
+        android:paddingLeft="16dp"
+        android:visibility="visible">
+
 
         <EditText
             android:id="@+id/et_send_massage"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_margin="16dp"
-            android:layout_weight=".5"
+            android:layout_weight="1"
+            android:background="@null"
+            android:editable="true"
+            android:focusable="true"
             android:hint="Type massage..."
+            android:imeActionId="@+id/send"
+            android:lines="8"
+            android:maxLines="10"
+            android:minLines="1"
             android:padding="10dp"
+            android:scrollbars="vertical"
             android:singleLine="true"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/black"
+            tools:ignore="InvalidImeActionId" />
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1.5"
-            android:src="@drawable/messenger_bubble_small_blue" />
+            android:id="@+id/iv_send"
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:padding="10dp"
+            android:src="@mipmap/ic_send" />
 
     </LinearLayout>
 
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

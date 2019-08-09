@@ -32,7 +32,7 @@
                     android:layout_height="200dp"
                     app:fillColor="@android:color/white"
                     app:radius="6dp"
-                    android:visibility="visible"
+                    android:visibility="gone"
                     app:slideInterval="3000"
                     app:pageColor="#00000000"
                     app:strokeColor="@android:color/background_dark"

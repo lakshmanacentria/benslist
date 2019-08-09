@@ -289,14 +289,21 @@
             android:configChanges="locale|keyboardHidden|orientation|screenSize"
             android:label=""
             android:theme="@style/Theme.FlynaxDefault"
-            android:windowSoftInputMode="stateHidden"
-            />
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".chatprocess.ChatPostListActivity"
             android:configChanges="locale|keyboardHidden|orientation|screenSize"
             android:label=""
             android:theme="@style/Theme.FlynaxDefault"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity
+            android:name=".chatprocess.ChatHistoryActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:label=""
+            android:theme="@style/Theme.FlynaxDefault"
             android:windowSoftInputMode="stateHidden"
+
             />
 
         <activity

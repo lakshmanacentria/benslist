@@ -23,6 +23,8 @@ public class ChatPostResponse {
     @SerializedName("job_position")
     @Expose
     private String jobPosition;
+    private String username="";
+
 
 
     public String getUserId() {
@@ -72,4 +74,15 @@ public class ChatPostResponse {
     public void setJobPosition(String jobPosition) {
         this.jobPosition = jobPosition;
     }
+
+    public void setUserName(String usernaeme) {
+        this.username=usernaeme;
+    }
+
+
+    public String getUsername(){
+        return username;
+    }
+
+
 }

@@ -46,7 +46,7 @@ public class MarchentListActivity extends AppCompatActivity implements Marchent_
     private RecyclerView rv_recyclerviw;
     private TextView tv_no_records;
     private ProgressDialog progressDialog;
-    private String TAG = MarchentListActivity.class.getName();
+    private String TAG = MarchentListActivity.class.getName(), accountname;
     private List<MarchentListResponse> list;
     private boolean is_chatpost = false;
 
@@ -84,21 +84,39 @@ public class MarchentListActivity extends AppCompatActivity implements Marchent_
 
     private void call_marchrentlistApi() {
         final String account_id;
+        String acount_type, url;
         if (!Account.loggedIn) {
 
             return;
         } else {
             account_id = Account.accountData.get("id");
+            accountname = Account.accountData.get("type_name");
             Log.e(TAG, "account_id=> " + Account.accountData.get("id"));
+            Log.e(TAG, "accounttype: " + accountname);
+
+            if (accountname.equalsIgnoreCase("Seller")) {
+                acount_type = "merchant_id";
+                url = "https://www.benslist.com/Api/Chat/chat_user_list.inc.php";
+
+                Log.e(TAG, "type " + acount_type + "\taccount_id" + account_id + "\nurl " + url);
+            } else {
+                acount_type = "user_id";
+                url = "https://www.benslist.com/Api/Chat/chat_merchant_list.inc.php";
+                Log.e(TAG, "type " + acount_type + "account_id" + account_id + "\nurl " + url);
+
+
+            }
         }
         OkHttpClient okHttpClient = new OkHttpClient();
+
         RequestBody requestBody = new MultipartBody.Builder()
                 .setType(MultipartBody.FORM)
-                .addFormDataPart("user_id", account_id)
+                .addFormDataPart(acount_type, account_id)
                 .build();
 
+
         Request request = new Request.Builder()
-                .url("https://www.benslist.com/Api/Chat/chat_merchant_list.inc.php")
+                .url(url)
                 .post(requestBody)
                 .build();
         progressDialog.show();
@@ -122,7 +140,7 @@ public class MarchentListActivity extends AppCompatActivity implements Marchent_
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (response.isSuccessful()) {
-                    String respo = response.body().string();
+                    final String respo = response.body().string();
                     Log.e(TAG, "onResponse: \n" + respo);
                     if (!respo.equalsIgnoreCase("[]")) {
                         try {
@@ -145,13 +163,19 @@ public class MarchentListActivity extends AppCompatActivity implements Marchent_
 
 
                     } else {
-                        progressDialog.dismiss();
-                        rv_recyclerviw.setVisibility(View.GONE);
-                        tv_no_records.setVisibility(View.VISIBLE);
-                        tv_no_records.setText("No record found");
+
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                progressDialog.dismiss();
+                                rv_recyclerviw.setVisibility(View.GONE);
+                                tv_no_records.setVisibility(View.VISIBLE);
+                                tv_no_records.setText("No record found");
+                                Log.e(TAG, "arrary blank get" + respo);
+                            }
+                        });
 
 
-                        Log.e(TAG, "arrary blank get" + respo);
                     }
 
 
@@ -183,10 +207,18 @@ public class MarchentListActivity extends AppCompatActivity implements Marchent_
     }
 
     @Override
-    public void OnPosiClieck(int pos, String user_login_id, String marchentid, String postid) {
-        Log.e(TAG, "OnPosiClieck " + pos + "\tUserlogin id " + user_login_id + "\t marchent_id" + marchentid + "\tpostid" + postid);
+    public void OnPosiClieck(int pos, String user_login_id, String marchentid, String post_id, String username) {
+        Log.e(TAG, "OnPosiClieck " + pos + "\tUserlogin id " + user_login_id + "\t marchent_id" + marchentid + "\tpost_id " + post_id + "\tusername" + username);
         if (!is_chatpost) {
-            startActivity(new Intent(this, ChatPostListActivity.class).putExtra("merchant_id", marchentid));
+            if (!accountname.equalsIgnoreCase("Seller")) {
+                startActivity(new Intent(this, ChatPostListActivity.class).putExtra("merchant_id", marchentid).putExtra("user_name", username)
+                        .putExtra("account_name", accountname));
+
+            } else {
+                startActivity(new Intent(this, ChatPostListActivity.class).putExtra("merchant_id", marchentid).putExtra("user_name", username)
+                        .putExtra("account_name", accountname));
+
+            }
 
         }
         /*Only come if becone this actvity send ischatpost boolean false than we need only call false condition*/

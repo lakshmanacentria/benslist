@@ -72,7 +72,7 @@ public class Marchent_ListAdapter extends RecyclerView.Adapter<Marchent_ListAdap
                         @Override
                         public void onClick(View v) {
 
-                            monClickPosi.OnPosiClieck(position, mlist_chatpost.get(position).getUserId(), mlist_chatpost.get(position).getMerchantId(), mlist_chatpost.get(position).getPostId());
+                            monClickPosi.OnPosiClieck(position, mlist_chatpost.get(position).getUserId(), mlist_chatpost.get(position).getMerchantId(), mlist_chatpost.get(position).getPostId(), mlist_chatpost.get(position).getUsername());
                         }
                     });
                 }
@@ -84,7 +84,7 @@ public class Marchent_ListAdapter extends RecyclerView.Adapter<Marchent_ListAdap
                 holder.constrain_parent.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        monClickPosi.OnPosiClieck(position, "user_loginid", mlist.get(position).getId(), "postid_id");
+                        monClickPosi.OnPosiClieck(position, "user_loginid", mlist.get(position).getId(), "postidnot use", mlist.get(position).getUsername());
                     }
                 });
             }
@@ -123,6 +123,6 @@ public class Marchent_ListAdapter extends RecyclerView.Adapter<Marchent_ListAdap
 
 
     public interface OnClickPosi {
-        void OnPosiClieck(int pos, String user_login_id, String marchentid, String post_id);
+        void OnPosiClieck(int pos, String user_login_id, String marchentid, String post_id, String username);
     }
 }

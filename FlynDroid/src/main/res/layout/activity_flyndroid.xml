@@ -1,17 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
+    android:layout_width="match_parent"
     android:layout_height="fill_parent"
-    android:background="@layout/main_bg"
+    android:background="@drawable/screensplash"
     android:focusable="false"
-    android:orientation="vertical" >
+
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
 
     <LinearLayout
+
         android:id="@+id/top_splashes"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="#e6e6e6"
-        android:orientation="vertical" >
+        android:background="#83F1EEEE"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
+
 
         <ImageView
             android:id="@+id/welcome_logo"
@@ -20,115 +31,116 @@
             android:layout_gravity="center_horizontal|bottom"
             android:layout_weight="1"
             android:paddingBottom="20dp"
+
             android:src="@mipmap/welcome_logo" />
-        
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center_horizontal"
-            android:text="@string/welcome_copyrights"
-            android:textColor="#6f7677"
             android:paddingBottom="30dp"
+            android:text="@string/welcome_copyrights"
+            android:textColor="#0E0E0E"
             android:textSize="12sp" />
 
     </LinearLayout>
 
-	<LinearLayout
-	    android:id="@+id/run_form"
-	    android:layout_width="@dimen/welcome_max_form_width"
-	    android:layout_height="wrap_content"
-	    android:layout_centerHorizontal="true"
-	    android:layout_centerVertical="true"
-	    android:layout_marginLeft="25dp"
-	    android:layout_marginRight="25dp"
-	    android:orientation="horizontal"
-	    android:visibility="invisible">
+    <LinearLayout
+        android:id="@+id/run_form"
+        android:layout_width="@dimen/welcome_max_form_width"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:orientation="horizontal"
+        android:visibility="invisible">
 
-		<TableLayout
-		    android:id="@+id/run_form_inner_domain"
-		    android:layout_width="fill_parent"
-		    android:layout_height="fill_parent"
-		    android:paddingTop="60dp"
-		    android:orientation="horizontal" >
+        <TableLayout
+            android:id="@+id/run_form_inner_domain"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:paddingTop="60dp">
 
-		    <TableRow
-		        android:layout_height="wrap_content"
-		        android:gravity="center_horizontal">
+            <TableRow
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
 
-			    <EditText
-			        android:id="@+id/domain_name"
-			        android:layout_width="0dp"
-			        android:layout_height="44dp"
-			        android:layout_weight="1"
-			        android:background="@drawable/shape_text"
-			        android:hint="@string/welcome_domain_hint"
-			        android:inputType="textUri"
-			        android:textColorHint="#898989" >
+                <EditText
+                    android:id="@+id/domain_name"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_text"
+                    android:hint="@string/welcome_domain_hint"
+                    android:inputType="textUri"
+                    android:textColorHint="#898989">
 
-			        <requestFocus />
-			    </EditText>
+                    <requestFocus />
+                </EditText>
 
-			    <Button
-			        android:id="@+id/welcome_go"
-			        android:layout_width="wrap_content"
-			        android:layout_height="44dp"
-			        android:layout_marginLeft="15dp"
-					android:layout_marginStart="15dp"
-			        android:paddingLeft="20dp"
-			        android:paddingStart="20dp"
-			        android:paddingRight="20dp"
-			        android:paddingEnd="20dp"
-			        android:textColor="#ffffff"
-			        android:background="@drawable/shape_button"
-			        android:text="@string/welcome_go" />
+                <Button
+                    android:id="@+id/welcome_go"
+                    android:layout_width="wrap_content"
+                    android:layout_height="44dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/shape_button"
+                    android:paddingStart="20dp"
+                    android:paddingLeft="20dp"
+                    android:paddingEnd="20dp"
+                    android:paddingRight="20dp"
+                    android:text="@string/welcome_go"
+                    android:textColor="#ffffff" />
 
-			</TableRow>
+            </TableRow>
 
-		    <TableRow
-		        android:layout_height="wrap_content"
-		        android:gravity="center"
-		        android:orientation="horizontal"
-		        android:paddingTop="20dp" >
+            <TableRow
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingTop="20dp">
 
-		    	<Button
-			        android:id="@+id/try_demo"
-			        android:layout_width="wrap_content"
-			        android:layout_height="44dp"
-			        android:textColor="#ffffff"
-			        android:background="@drawable/shape_button_demo"
-			        android:text="@string/welcome_try_demo" />
+                <Button
+                    android:id="@+id/try_demo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="44dp"
+                    android:background="@drawable/shape_button_demo"
+                    android:text="@string/welcome_try_demo"
+                    android:textColor="#ffffff" />
 
-		    </TableRow>
+            </TableRow>
 
-	    </TableLayout>
+        </TableLayout>
 
-	</LinearLayout>
+    </LinearLayout>
 
-	<LinearLayout
-	    android:id="@+id/refresh_form"
-	    android:layout_width="fill_parent"
-	    android:layout_height="80dp"
-	    android:layout_centerHorizontal="true"
-	    android:layout_centerVertical="true"
-	    android:layout_marginLeft="25dp"
-	    android:gravity="center"
-	    android:layout_marginRight="25dp"
-	    android:orientation="horizontal"
-	    android:visibility="invisible">
+    <LinearLayout
+        android:id="@+id/refresh_form"
+        android:layout_width="fill_parent"
+        android:layout_height="80dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="invisible">
 
-	    <Button
-	        android:id="@+id/welcome_refresh"
-	        android:layout_width="wrap_content"
-	        android:layout_height="44dp"
-	        android:layout_marginTop="15dp"
-	        android:paddingLeft="20dp"
-	        android:paddingStart="20dp"
-	        android:paddingRight="20dp"
-	        android:paddingEnd="20dp"
-	        android:textColor="#ffffff"
-	        android:background="@drawable/shape_button"
-	        android:text="@string/welcome_refresh" />
+        <Button
+            android:id="@+id/welcome_refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/shape_button"
+            android:paddingStart="20dp"
+            android:paddingLeft="20dp"
+            android:paddingEnd="20dp"
+            android:paddingRight="20dp"
+            android:text="@string/welcome_refresh"
+            android:textColor="#ffffff" />
 
-	</LinearLayout>
+    </LinearLayout>
 
 </RelativeLayout>
